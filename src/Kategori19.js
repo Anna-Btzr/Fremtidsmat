@@ -40,19 +40,19 @@ const Kategori19 = (props) => {
 
   const onClick = () => {
     if (
-      nutrition.fett != "" &&
+      nutrition.fett !== "" &&
       nutrition.fett <= 80 &&
-      nutrition.mettede != "" &&
+      nutrition.mettede !== "" &&
       nutrition.mettede <= 26.4 &&
-      nutrition.salt != "" &&
+      nutrition.salt !== "" &&
       nutrition.salt <= 1.1 &&
-      nutrition.enumettede != "" &&
-      nutrition.flerumettede != "" &&
-      nutrition.karbohydrat != "" &&
-      nutrition.protein != "" &&
-      nutrition.sukkerarter != "" &&
-      nutrition.energi != "" &&
-      nutrition.energiKal != ""
+      nutrition.enumettede !== "" &&
+      nutrition.flerumettede !== "" &&
+      nutrition.karbohydrat !== "" &&
+      nutrition.protein !== "" &&
+      nutrition.sukkerarter !== "" &&
+      nutrition.energi !== "" &&
+      nutrition.energiKal !== ""
     ) {
       props.changeDiv(true);
       setFett(false);

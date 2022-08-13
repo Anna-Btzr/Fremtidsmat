@@ -34,14 +34,14 @@ const Kategori12a = (props) => {
 
   const onClick = () => {
     if (
-      nutrition.energi != "" &&
-      nutrition.energiKal != "" &&
-      nutrition.mettede != "" &&
-      nutrition.karbohydrat != "" &&
-      nutrition.protein != "" &&
-      nutrition.salt != "" &&
-      nutrition.sukkerarter != "" &&
-      nutrition.fett != "" &&
+      nutrition.energi !== "" &&
+      nutrition.energiKal !== "" &&
+      nutrition.mettede !== "" &&
+      nutrition.karbohydrat !== "" &&
+      nutrition.protein !== "" &&
+      nutrition.salt !== "" &&
+      nutrition.sukkerarter !== "" &&
+      nutrition.fett !== "" &&
       nutrition.fett <= 1.5
     ) {
       props.changeDiv(true);

@@ -52,18 +52,18 @@ const Kategori27 = () => {
 
   const onClick = () => {
     if (
-      nutrition.mettede != "" &&
+      nutrition.mettede !== "" &&
       nutrition.mettede <= 1.5 &&
-      nutrition.sukkerarter != "" &&
+      nutrition.sukkerarter !== "" &&
       nutrition.sukkerarter <= 3 &&
-      nutrition.salt != "" &&
+      nutrition.salt !== "" &&
       nutrition.salt <= 0.8 &&
-      nutrition.fiber != "" &&
-      nutrition.karbohydrat != "" &&
-      nutrition.protein != "" &&
-      nutrition.fett != "" &&
-      nutrition.energi != "" &&
-      nutrition.energiKal != ""
+      nutrition.fiber !== "" &&
+      nutrition.karbohydrat !== "" &&
+      nutrition.protein !== "" &&
+      nutrition.fett !== "" &&
+      nutrition.energi !== "" &&
+      nutrition.energiKal !== ""
     ) {
       setShowResults(true);
       setShowEmptyResult(false);
@@ -80,21 +80,21 @@ const Kategori27 = () => {
       setProtein(false);
       setFiber(false);
     } else {
-      if (nutrition.energi == "" || nutrition.energi < 0) {
+      if (nutrition.energi === "" || nutrition.energi < 0) {
         setEnergi(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
         setEnergi(false);
       }
-      if (nutrition.energiKal == "" || nutrition.energiKal < 0) {
+      if (nutrition.energiKal === "" || nutrition.energiKal < 0) {
         setEnergiKal(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
         setEnergiKal(false);
       }
-      if (nutrition.mettede == "" || nutrition.mettede < 0) {
+      if (nutrition.mettede === "" || nutrition.mettede < 0) {
         setMettedeNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -107,35 +107,35 @@ const Kategori27 = () => {
       } else {
         setMettede(false);
       }
-      if (nutrition.fiber == "" || nutrition.fiber < 0) {
+      if (nutrition.fiber === "" || nutrition.fiber < 0) {
         setFiber(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
         setFiber(false);
       }
-      if (nutrition.karbohydrat == "" || nutrition.karbohydrat < 0) {
+      if (nutrition.karbohydrat === "" || nutrition.karbohydrat < 0) {
         setKarbohydrat(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
         setKarbohydrat(false);
       }
-      if (nutrition.fett == "" || nutrition.fett < 0) {
+      if (nutrition.fett === "" || nutrition.fett < 0) {
         setFett(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
         setFett(false);
       }
-      if (nutrition.protein == "" || nutrition.protein < 0) {
+      if (nutrition.protein === "" || nutrition.protein < 0) {
         setProtein(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
         setProtein(false);
       }
-      if (nutrition.salt == "" || nutrition.salt < 0) {
+      if (nutrition.salt === "" || nutrition.salt < 0) {
         setSaltNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -148,7 +148,7 @@ const Kategori27 = () => {
       } else {
         setSalt(false);
       }
-      if (nutrition.sukkerarter == "" || nutrition.sukkerarter < 0) {
+      if (nutrition.sukkerarter === "" || nutrition.sukkerarter < 0) {
         setSukkerarterNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
