@@ -104,7 +104,7 @@ const Kategori12a = () => {
       } else {
         setFettNull(false);
       }
-      if (nutrition.fett < 1.5) {
+      if (nutrition.fett > 1.5) {
         setFett(true);
         setShowResults(false);
       } else {
