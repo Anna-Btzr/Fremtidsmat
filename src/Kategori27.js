@@ -18,30 +18,33 @@ const Kategori27 = () => {
   const onClickClose = () => {
     setInfo(false);
   };
-
-  const [energi, setEnergi] = useState(false);
-  const [energiKal, setEnergiKal] = useState(false);
+  const [energiKj, setEnergiKj] = useState(false);
+  const [energiKcal, setEnergiKcal] = useState(false);
   const [fett, setFett] = useState(false);
   const [mettede, setMettede] = useState(false);
   const [mettedeNull, setMettedeNull] = useState(false);
   const [karbohydrat, setKarbohydrat] = useState(false);
   const [sukkerarter, setSukkerarter] = useState(false);
   const [sukkerarterNull, setSukkerarterNull] = useState(false);
-  const [fiber, setFiber] = useState(false);
   const [protein, setProtein] = useState(false);
   const [salt, setSalt] = useState(false);
   const [saltNull, setSaltNull] = useState(false);
+  const [vitaminB12, setVitaminB12] = useState(false);
+  const [kalsium, setKalsium] = useState(false);
+  const [kostfiber, setKostfiber] = useState(false);
 
   const [nutrition, setNutrition] = useState({
-    energi: "",
-    energiKal: "",
+    energiKj: "",
+    energiKcal: "",
     fett: "",
-    mettede: "",
+    mettende: "",
     karbohydrat: "",
     sukkerarter: "",
-    fiber: "",
     protein: "",
     salt: "",
+    vitaminB12: "",
+    kalsium: "",
+    kostfiber: "",
   });
   const changeHandle = (event) => {
     setNutrition({
@@ -52,48 +55,62 @@ const Kategori27 = () => {
 
   const onClick = () => {
     if (
+      nutrition.energiKj !== "" &&
+      nutrition.energiKcal !== "" &&
+      nutrition.fett !== "" &&
       nutrition.mettede !== "" &&
       nutrition.mettede <= 1.5 &&
+      nutrition.karbohydrat !== "" &&
       nutrition.sukkerarter !== "" &&
       nutrition.sukkerarter <= 3 &&
+      nutrition.protein !== "" &&
       nutrition.salt !== "" &&
       nutrition.salt <= 0.8 &&
-      nutrition.fiber !== "" &&
-      nutrition.karbohydrat !== "" &&
-      nutrition.protein !== "" &&
-      nutrition.fett !== "" &&
-      nutrition.energi !== "" &&
-      nutrition.energiKal !== ""
+      nutrition.vitaminB12 !== "" &&
+      nutrition.kalsium !== "" &&
+      nutrition.kostfiber !== ""
     ) {
       setShowResults(true);
       setShowEmptyResult(false);
+      setEnergiKj(false);
+      setEnergiKcal(false);
       setFett(false);
-      setEnergi(false);
-      setEnergiKal(false);
       setMettede(false);
       setMettedeNull(false);
       setKarbohydrat(false);
       setSukkerarter(false);
       setSukkerarterNull(false);
+      setProtein(false);
       setSalt(false);
       setSaltNull(false);
-      setProtein(false);
-      setFiber(false);
+      setVitaminB12(false);
+      setKalsium(false);
+      setKostfiber(false);
     } else {
-      if (nutrition.energi === "" || nutrition.energi < 0) {
-        setEnergi(true);
+      if (nutrition.energiKj === "" || nutrition.energiKj < 0) {
+        setEnergiKj(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
-        setEnergi(false);
+        setEnergiKj(false);
       }
-      if (nutrition.energiKal === "" || nutrition.energiKal < 0) {
-        setEnergiKal(true);
+
+      if (nutrition.energiKcal === "" || nutrition.energiKcal < 0) {
+        setEnergiKcal(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
-        setEnergiKal(false);
+        setEnergiKcal(false);
       }
+
+      if (nutrition.fett === "" || nutrition.fett < 0) {
+        setFett(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setFett(false);
+      }
+
       if (nutrition.mettede === "" || nutrition.mettede < 0) {
         setMettedeNull(true);
         setShowResults(false);
@@ -107,13 +124,7 @@ const Kategori27 = () => {
       } else {
         setMettede(false);
       }
-      if (nutrition.fiber === "" || nutrition.fiber < 0) {
-        setFiber(true);
-        setShowResults(false);
-        setShowEmptyResult(true);
-      } else {
-        setFiber(false);
-      }
+
       if (nutrition.karbohydrat === "" || nutrition.karbohydrat < 0) {
         setKarbohydrat(true);
         setShowResults(false);
@@ -121,13 +132,21 @@ const Kategori27 = () => {
       } else {
         setKarbohydrat(false);
       }
-      if (nutrition.fett === "" || nutrition.fett < 0) {
-        setFett(true);
+
+      if (nutrition.sukkerarter === "" || nutrition.sukkerarter < 0) {
+        setSukkerarterNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
-        setFett(false);
+        setSukkerarterNull(false);
       }
+      if (nutrition.sukkerarter > 3) {
+        setSukkerarter(true);
+        setShowResults(false);
+      } else {
+        setSukkerarter(false);
+      }
+
       if (nutrition.protein === "" || nutrition.protein < 0) {
         setProtein(true);
         setShowResults(false);
@@ -135,6 +154,7 @@ const Kategori27 = () => {
       } else {
         setProtein(false);
       }
+
       if (nutrition.salt === "" || nutrition.salt < 0) {
         setSaltNull(true);
         setShowResults(false);
@@ -148,18 +168,29 @@ const Kategori27 = () => {
       } else {
         setSalt(false);
       }
-      if (nutrition.sukkerarter === "" || nutrition.sukkerarter < 0) {
-        setSukkerarterNull(true);
+
+      if (nutrition.vitaminB12 === "" || nutrition.vitaminB12 < 0) {
+        setVitaminB12(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
-        setSukkerarterNull(false);
+        setVitaminB12(false);
       }
-      if (nutrition.sukkerarter > 3) {
-        setSukkerarter(true);
+
+      if (nutrition.kalsium === "" || nutrition.kalsium < 0) {
+        setKalsium(true);
         setShowResults(false);
+        setShowEmptyResult(true);
       } else {
-        setSukkerarter(false);
+        setKalsium(false);
+      }
+
+      if (nutrition.kostfiber === "" || nutrition.kostfiber < 0) {
+        setKostfiber(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setKostfiber(false);
       }
     }
   };
@@ -181,9 +212,9 @@ const Kategori27 = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className={energi ? "alert-box" : null}>
+              <tr className={energiKj ? "alert-box" : null}>
                 <th scope="row" className="table-font">
-                  {energi ? (
+                  {energiKj ? (
                     <Tooltip
                       title="Mangler verdi i energi (kJ) parameter"
                       placement="right"
@@ -204,16 +235,17 @@ const Kategori27 = () => {
                     type="number"
                     min="0"
                     step="any"
-                    name="energi"
-                    value={nutrition.energi}
+                    name="energiKj"
+                    value={nutrition.energiKj}
                     onChange={changeHandle}
                     className="form-control"
                   ></input>
                 </td>
               </tr>
-              <tr className={energiKal ? "alert-box" : null}>
+
+              <tr className={energiKcal ? "alert-box" : null}>
                 <th scope="row" className="table-font">
-                  {energiKal ? (
+                  {energiKcal ? (
                     <Tooltip
                       title="Mangler verdi i energi (kcal) parameter"
                       placement="right"
@@ -234,13 +266,14 @@ const Kategori27 = () => {
                     type="number"
                     min="0"
                     step="any"
-                    name="energiKal"
-                    value={nutrition.energiKal}
+                    name="energiKcal"
+                    value={nutrition.energiKcal}
                     onChange={changeHandle}
                     className="form-control"
                   ></input>
                 </td>
               </tr>
+
               <tr className={fett ? "alert-box" : null}>
                 <th scope="row" className="table-font">
                   {fett ? (
@@ -271,6 +304,7 @@ const Kategori27 = () => {
                   ></input>
                 </td>
               </tr>
+
               <tr
                 className={
                   mettede
@@ -320,6 +354,7 @@ const Kategori27 = () => {
                   ></input>
                 </td>
               </tr>
+
               <tr className={karbohydrat ? "alert-box" : null}>
                 <th scope="row" className="table-font">
                   {karbohydrat ? (
@@ -350,6 +385,7 @@ const Kategori27 = () => {
                   ></input>
                 </td>
               </tr>
+
               <tr
                 className={
                   sukkerarter
@@ -399,36 +435,7 @@ const Kategori27 = () => {
                   ></input>
                 </td>
               </tr>
-              <tr className={fiber ? "alert-box" : null}>
-                <th scope="row" className="table-font">
-                  {fiber ? (
-                    <Tooltip
-                      title="Mangler verdi i fiber parameter"
-                      placement="right"
-                      arrow
-                    >
-                      <div className="icon">
-                        <FontAwesomeIcon
-                          className="alert-icon"
-                          icon={faCircleExclamation}
-                        />
-                      </div>
-                    </Tooltip>
-                  ) : null}{" "}
-                  Fiber (g)
-                </th>
-                <td>
-                  <input
-                    type="number"
-                    min="0"
-                    step="any"
-                    name="fiber"
-                    value={nutrition.fiber}
-                    onChange={changeHandle}
-                    className="form-control"
-                  ></input>
-                </td>
-              </tr>
+
               <tr className={protein ? "alert-box" : null}>
                 <th scope="row" className="table-font">
                   {protein ? (
@@ -459,6 +466,7 @@ const Kategori27 = () => {
                   ></input>
                 </td>
               </tr>
+
               <tr
                 className={
                   salt ? "alert-box" : null || saltNull ? "alert-box" : null
@@ -504,6 +512,99 @@ const Kategori27 = () => {
                   ></input>
                 </td>
               </tr>
+
+              <tr className={vitaminB12 ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {vitaminB12 ? (
+                    <Tooltip
+                      title="Mangler verdi i viatamin B12 parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Vitamin B12 (µg)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="vitaminB12"
+                    value={nutrition.vitaminB12}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={kalsium ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {kalsium ? (
+                    <Tooltip
+                      title="Mangler verdi i kalsium parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Kalsium (mg)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="kalsium"
+                    value={nutrition.kalsium}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={kostfiber ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {kostfiber ? (
+                    <Tooltip
+                      title="Mangler verdi i kostfiber parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Kostfiber (g)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="kostfiber"
+                    value={nutrition.kostfiber}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -518,6 +619,7 @@ const Kategori27 = () => {
           </button>
         </div>
       </div>
+
       <div className="col-md-6">
         {showResults ? (
           <div className="container food-result-container">
@@ -573,21 +675,23 @@ const Kategori27 = () => {
               <div className="col-md-10">
                 <p>Produktet innfrir ikke Nøkkelhullet.</p>
                 {showEmptyResult ? (
-                  <p>** Mandatory nutrition values can't be empty.</p>
+                  <p>** Obligatoriske næringsverdier kan ikke være tomme.</p>
                 ) : null}
-                {salt ? (
-                  <p>** Salt value can be maximum 0.8 grams per 100 grams.</p>
-                ) : null}
-                {sukkerarter ? (
-                  <p>
-                    ** Sukkerarter value can be maximum 3 grams per 100 grams.
-                  </p>
-                ) : null}
+
                 {mettede ? (
                   <p>
-                    ** Mettede fettsyrer value can be maximum 1.5 grams per 100
-                    grams.
+                    ** Mettede fettsyrer verdien kan være høyst 1.5 g/100 g.
                   </p>
+                ) : null}
+
+                {sukkerarter ? (
+                  <p>
+                    ** Tilsatte sukkerarter verdien kan være høyst 3 g/100 g.
+                  </p>
+                ) : null}
+
+                {salt ? (
+                  <p>** Salt verdien kan være høyst 0.8 g/100 g.</p>
                 ) : null}
               </div>
               <div className="col-md-2">

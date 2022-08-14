@@ -3,27 +3,46 @@ import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { faBan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tooltip from "@mui/material/Tooltip";
+import keyholeLgog from "./circle-keyhole-logo.png";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 
-const Kategori12a = (props) => {
+const Kategori12a = () => {
+  const [showResults, setShowResults] = useState("");
+  const [showEmptyResult, setShowEmptyResult] = useState("");
+
+  const [info, setInfo] = useState("");
+  const onClickInfo = () => {
+    setInfo(true);
+  };
+  const onClickClose = () => {
+    setInfo(false);
+  };
+  const [energiKj, setEnergiKj] = useState(false);
+  const [energiKcal, setEnergiKcal] = useState(false);
   const [fett, setFett] = useState(false);
   const [fettNull, setFettNull] = useState(false);
-  const [energi, setEnergi] = useState(false);
-  const [energiKal, setEnergiKal] = useState(false);
   const [mettede, setMettede] = useState(false);
   const [karbohydrat, setKarbohydrat] = useState(false);
   const [sukkerarter, setSukkerarter] = useState(false);
   const [protein, setProtein] = useState(false);
   const [salt, setSalt] = useState(false);
+  const [vitaminB12, setVitaminB12] = useState(false);
+  const [kalsium, setKalsium] = useState(false);
+  const [kostfiber, setKostfiber] = useState(false);
 
   const [nutrition, setNutrition] = useState({
+    energiKj: "",
+    energiKcal: "",
     fett: "",
-    energi: "",
-    energiKal: "",
-    mettede: "",
+    mettende: "",
     karbohydrat: "",
     sukkerarter: "",
     protein: "",
     salt: "",
+    vitaminB12: "",
+    kalsium: "",
+    kostfiber: "",
   });
   const changeHandle = (event) => {
     setNutrition({
@@ -34,417 +53,673 @@ const Kategori12a = (props) => {
 
   const onClick = () => {
     if (
-      nutrition.energi !== "" &&
-      nutrition.energiKal !== "" &&
+      nutrition.energiKj !== "" &&
+      nutrition.energiKcal !== "" &&
+      nutrition.fett !== "" &&
+      nutrition.fett <= 1.5 &&
       nutrition.mettede !== "" &&
       nutrition.karbohydrat !== "" &&
+      nutrition.sukkerarter !== "" &&
       nutrition.protein !== "" &&
       nutrition.salt !== "" &&
-      nutrition.sukkerarter !== "" &&
-      nutrition.fett !== "" &&
-      nutrition.fett <= 1.5
+      nutrition.vitaminB12 !== "" &&
+      nutrition.kalsium !== "" &&
+      nutrition.kostfiber !== ""
     ) {
-      props.changeDiv(true);
+      setShowResults(true);
+      setShowEmptyResult(false);
+      setEnergiKj(false);
+      setEnergiKcal(false);
       setFett(false);
       setFettNull(false);
-      setEnergi(false);
-      setEnergiKal(false);
       setMettede(false);
       setKarbohydrat(false);
       setSukkerarter(false);
-      setSalt(false);
       setProtein(false);
+      setSalt(false);
+      setVitaminB12(false);
+      setKalsium(false);
+      setKostfiber(false);
     } else {
-      if (nutrition.energi === "" || nutrition.energi < 0) {
-        setEnergi(true);
-        props.changeDiv(false);
+      if (nutrition.energiKj === "" || nutrition.energiKj < 0) {
+        setEnergiKj(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
       } else {
-        setEnergi(false);
+        setEnergiKj(false);
       }
-      if (nutrition.energiKal === "" || nutrition.energiKal < 0) {
-        setEnergiKal(true);
-        props.changeDiv(false);
+
+      if (nutrition.energiKcal === "" || nutrition.energiKcal < 0) {
+        setEnergiKcal(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
       } else {
-        setEnergiKal(false);
+        setEnergiKcal(false);
       }
-      if (nutrition.mettede === "" || nutrition.mettede < 0) {
-        setMettede(true);
-        props.changeDiv(false);
+
+      if (nutrition.fett === "" || nutrition.fett < 0) {
+        setFettNull(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
       } else {
-        setMettede(false);
+        setFettNull(false);
       }
-      if (nutrition.karbohydrat === "" || nutrition.karbohydrat < 0) {
-        setKarbohydrat(true);
-        props.changeDiv(false);
-      } else {
-        setKarbohydrat(false);
-      }
-      if (nutrition.sukkerarter === "" || nutrition.sukkerarter < 0) {
-        setSukkerarter(true);
-        props.changeDiv(false);
-      } else {
-        setSukkerarter(false);
-      }
-      if (nutrition.protein === "" || nutrition.protein < 0) {
-        setProtein(true);
-        props.changeDiv(false);
-      } else {
-        setProtein(false);
-      }
-      if (nutrition.salt === "" || nutrition.salt < 0) {
-        setSalt(true);
-        props.changeDiv(false);
-      } else {
-        setSalt(false);
-      }
-      if (nutrition.fett > 1.5) {
+      if (nutrition.fett < 1.5) {
         setFett(true);
-        props.changeDiv(false);
+        setShowResults(false);
       } else {
         setFett(false);
       }
-      if (nutrition.fett === "" || nutrition.fett < 0) {
-        setFettNull(true);
-        props.changeDiv(false);
+
+      if (nutrition.mettede === "" || nutrition.mettede < 0) {
+        setMettede(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
       } else {
-        setFettNull(false);
+        setMettede(false);
+      }
+
+      if (nutrition.karbohydrat === "" || nutrition.karbohydrat < 0) {
+        setKarbohydrat(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setKarbohydrat(false);
+      }
+
+      if (nutrition.sukkerarter === "" || nutrition.sukkerarter < 0) {
+        setSukkerarter(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setSukkerarter(false);
+      }
+
+      if (nutrition.protein === "" || nutrition.protein < 0) {
+        setProtein(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setProtein(false);
+      }
+
+      if (nutrition.salt === "" || nutrition.salt < 0) {
+        setSalt(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setSalt(false);
+      }
+
+      if (nutrition.vitaminB12 === "" || nutrition.vitaminB12 < 0) {
+        setVitaminB12(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setVitaminB12(false);
+      }
+
+      if (nutrition.kalsium === "" || nutrition.kalsium < 0) {
+        setKalsium(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setKalsium(false);
+      }
+
+      if (nutrition.kostfiber === "" || nutrition.kostfiber < 0) {
+        setKostfiber(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setKostfiber(false);
       }
     }
   };
 
-  console.log(nutrition);
-  console.log();
-
   return (
-    <div>
-      <h4>Porsjon (gram) 100</h4>
+    <div className="row">
+      <h5>Porsjon (gram) 100</h5>
+      <div className="col-md-6">
+        <div className="bg-light">
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" className="table-font">
+                  Energi eller næringsstoff
+                </th>
+                <th scope="col" className="table-font">
+                  Mengde
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className={energiKj ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {energiKj ? (
+                    <Tooltip
+                      title="Mangler verdi i energi (kJ) parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Energi (kJ)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="energiKj"
+                    value={nutrition.energiKj}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
 
-      <div className="bg-light">
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col" className="table-font">
-                Energi eller næringsstoff
-              </th>
-              <th scope="col" className="table-font">
-                Mengde
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className={energi ? "alert-box" : null}>
-              <th for="energi" scope="row" className="table-font">
-                {energi ? (
-                  <Tooltip
-                    title="Mangler verdi i energi (kJ) parameter"
-                    placement="right"
-                    arrow
-                  >
-                    <div className="icon">
-                      <FontAwesomeIcon
-                        className="alert-icon"
-                        icon={faCircleExclamation}
-                      />
-                    </div>
-                  </Tooltip>
-                ) : null}{" "}
-                Energi (kJ)
-              </th>
-              <td>
-                <input
-                  id="energi"
-                  aria-labelledby="energi"
-                  type="number"
-                  min="0"
-                  step="any"
-                  name="energi"
-                  value={nutrition.energi}
-                  onChange={changeHandle}
-                  className="form-control"
-                ></input>
-              </td>
-            </tr>
-            <tr className={energiKal ? "alert-box" : null}>
-              <th for="energiKal" scope="row" className="table-font">
-                {energiKal ? (
-                  <Tooltip
-                    title="Mangler verdi i energi (kcal) parameter"
-                    placement="right"
-                    arrow
-                  >
-                    <div className="icon">
-                      <FontAwesomeIcon
-                        className="alert-icon"
-                        icon={faCircleExclamation}
-                      />
-                    </div>
-                  </Tooltip>
-                ) : null}{" "}
-                Energi (kcal)
-              </th>
-              <td>
-                <input
-                  id="energiKal"
-                  aria-labelledby="energiKal"
-                  type="number"
-                  min="0"
-                  step="any"
-                  name="energiKal"
-                  value={nutrition.energiKal}
-                  onChange={changeHandle}
-                  className="form-control"
-                ></input>
-              </td>
-            </tr>
-            <tr
-              className={
-                fett ? "alert-box" : null || fettNull ? "alert-box" : null
-              }
-            >
-              <th for="fett" scope="row" className="table-font">
-                {fett ? (
-                  <Tooltip
-                    title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden fett. Mengden på fett må være lavere enn eller lik 1,5 / 100 g for å møte kravene for Nøkkelhullsmerking."
-                    placement="right"
-                    arrow
-                  >
-                    <div className="icon">
-                      <FontAwesomeIcon className="alert-icon" icon={faBan} />
-                    </div>
-                  </Tooltip>
-                ) : null}
-                {fettNull ? (
-                  <Tooltip
-                    title="Mangler verdi i fett parameter"
-                    placement="right"
-                    arrow
-                  >
-                    <div className="icon">
-                      <FontAwesomeIcon
-                        className="alert-icon"
-                        icon={faCircleExclamation}
-                      />
-                    </div>
-                  </Tooltip>
-                ) : null}{" "}
-                Fett (g)
-              </th>
-              <td>
-                <input
-                  id="fett"
-                  aria-labelledby="fett"
-                  type="number"
-                  min="0"
-                  step="any"
-                  name="fett"
-                  value={nutrition.fett}
-                  onChange={changeHandle}
-                  className="form-control"
-                ></input>
-              </td>
-            </tr>
-            <tr className={mettede ? "alert-box" : null}>
-              <th for="mettede" scope="row" className="table-font">
-                {mettede ? (
-                  <Tooltip
-                    title="Mangler verdi i mettede fettsyrer parameter"
-                    placement="right"
-                    arrow
-                  >
-                    <div className="icon">
-                      <FontAwesomeIcon
-                        className="alert-icon"
-                        icon={faCircleExclamation}
-                      />
-                    </div>
-                  </Tooltip>
-                ) : null}{" "}
-                Mettede fettsyrer (g)
-              </th>
-              <td>
-                <input
-                  id="mettede"
-                  aria-labelledby="Mettede"
-                  type="number"
-                  min="0"
-                  step="any"
-                  name="mettede"
-                  value={nutrition.mettede}
-                  onChange={changeHandle}
-                  className="form-control"
-                ></input>
-              </td>
-            </tr>
-            <tr className={karbohydrat ? "alert-box" : null}>
-              <th for="karbohydrat" scope="row" className="table-font">
-                {karbohydrat ? (
-                  <Tooltip
-                    title="Mangler verdi i karbohydrat parameter"
-                    placement="right"
-                    arrow
-                  >
-                    <div className="icon">
-                      <FontAwesomeIcon
-                        className="alert-icon"
-                        icon={faCircleExclamation}
-                      />
-                    </div>
-                  </Tooltip>
-                ) : null}{" "}
-                Karbohydrat (g)
-              </th>
-              <td>
-                <input
-                  id="karbohydrat"
-                  aria-labelledby="Karbohydrat"
-                  type="number"
-                  min="0"
-                  step="any"
-                  name="karbohydrat"
-                  value={nutrition.karbohydrat}
-                  onChange={changeHandle}
-                  className="form-control"
-                ></input>
-              </td>
-            </tr>
-            <tr className={sukkerarter ? "alert-box" : null}>
-              <th for="sukkerarter" scope="row" className="table-font">
-                {sukkerarter ? (
-                  <Tooltip
-                    title="Mangler verdi i sukkerarter parameter"
-                    placement="right"
-                    arrow
-                  >
-                    <div className="icon">
-                      <FontAwesomeIcon
-                        className="alert-icon"
-                        icon={faCircleExclamation}
-                      />
-                    </div>
-                  </Tooltip>
-                ) : null}{" "}
-                Sukkerarter (g)
-              </th>
-              <td>
-                <input
-                  id="sukkerarter"
-                  aria-labelledby="Sukkerarter"
-                  type="number"
-                  min="0"
-                  step="any"
-                  name="sukkerarter"
-                  value={nutrition.sukkerarter}
-                  onChange={changeHandle}
-                  className="form-control"
-                ></input>
-              </td>
-            </tr>
-            <tr className={protein ? "alert-box" : null}>
-              <th for="protein" scope="row" className="table-font">
-                {protein ? (
-                  <Tooltip
-                    title="Mangler verdi i protein parameter"
-                    placement="right"
-                    arrow
-                  >
-                    <div className="icon">
-                      <FontAwesomeIcon
-                        className="alert-icon"
-                        icon={faCircleExclamation}
-                      />
-                    </div>
-                  </Tooltip>
-                ) : null}{" "}
-                Protein (g)
-              </th>
-              <td>
-                <input
-                  id="protein"
-                  aria-labelledby="Protein"
-                  type="number"
-                  min="0"
-                  step="any"
-                  name="protein"
-                  value={nutrition.protein}
-                  onChange={changeHandle}
-                  className="form-control"
-                ></input>
-              </td>
-            </tr>
-            <tr className={salt ? "alert-box" : null}>
-              <th for="salt" scope="row" className="table-font">
-                {salt ? (
-                  <Tooltip
-                    title="Mangler verdi i salt parameter"
-                    placement="right"
-                    arrow
-                  >
-                    <div className="icon">
-                      <FontAwesomeIcon
-                        className="alert-icon"
-                        icon={faCircleExclamation}
-                      />
-                    </div>
-                  </Tooltip>
-                ) : null}{" "}
-                Salt (g)
-              </th>
-              <td>
-                <input
-                  id="salt"
-                  aria-labelledby="Salt"
-                  type="number"
-                  min="0"
-                  step="any"
-                  name="salt"
-                  value={nutrition.salt}
-                  onChange={changeHandle}
-                  className="form-control"
-                ></input>
-              </td>
-            </tr>
-            <tr>
-              <th for="Vitamin" scope="row" className="table-font">
-                Vitamin B12 (µg)
-              </th>
-              <td>
-                <input
-                  id="Vitamin"
-                  aria-labelledby="Vitamin"
-                  type="number"
-                  min="0"
-                  step="any"
-                  className="form-control"
-                ></input>
-              </td>
-            </tr>
-            <tr>
-              <th for="Kalsium" scope="row" className="table-font">
-                Kalsium (mg)
-              </th>
-              <td colSpan="2">
-                <input
-                  id="Kalsium"
-                  aria-labelledby="Kalsium"
-                  type="number"
-                  min="0"
-                  step="any"
-                  className="form-control"
-                ></input>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              <tr className={energiKcal ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {energiKcal ? (
+                    <Tooltip
+                      title="Mangler verdi i energi (kcal) parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Energi (kcal)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="energiKcal"
+                    value={nutrition.energiKcal}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr
+                className={
+                  fett ? "alert-box" : null || fettNull ? "alert-box" : null
+                }
+              >
+                <th scope="row" className="table-font">
+                  {fett ? (
+                    <Tooltip
+                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden fett. Mengden på fett må være lavere enn eller lik 1,5 / 100 g for å møte kravene for Nøkkelhullsmerking."
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon className="alert-icon" icon={faBan} />
+                      </div>
+                    </Tooltip>
+                  ) : null}
+                  {fettNull ? (
+                    <Tooltip
+                      title="Mangler verdi i fett parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Fett (g)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="fett"
+                    value={nutrition.fett}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={mettede ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {mettede ? (
+                    <Tooltip
+                      title="Mangler verdi i mettede fettsyrer parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Mettede fettsyrer (g)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="mettede"
+                    value={nutrition.mettede}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={karbohydrat ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {karbohydrat ? (
+                    <Tooltip
+                      title="Mangler verdi i karbohydrat parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Karbohydrat (g)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="karbohydrat"
+                    value={nutrition.karbohydrat}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={sukkerarter ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {sukkerarter ? (
+                    <Tooltip
+                      title="Mangler verdi i sukkerarter parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Sukkerarter (g)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="sukkerarter"
+                    value={nutrition.sukkerarter}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={protein ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {protein ? (
+                    <Tooltip
+                      title="Mangler verdi i protein parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Protein (g)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="protein"
+                    value={nutrition.protein}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={salt ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {salt ? (
+                    <Tooltip
+                      title="Mangler verdi i salt parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Salt (g)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="salt"
+                    value={nutrition.salt}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={vitaminB12 ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {vitaminB12 ? (
+                    <Tooltip
+                      title="Mangler verdi i viatamin B12 parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Vitamin B12 (µg)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="vitaminB12"
+                    value={nutrition.vitaminB12}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={kalsium ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {kalsium ? (
+                    <Tooltip
+                      title="Mangler verdi i kalsium parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Kalsium (mg)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="kalsium"
+                    value={nutrition.kalsium}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={kostfiber ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {kostfiber ? (
+                    <Tooltip
+                      title="Mangler verdi i kostfiber parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Kostfiber (g)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="kostfiber"
+                    value={nutrition.kostfiber}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="col-12 button-div">
+          <button
+            type="submit"
+            className="btn btn-primary btn-lg button-search"
+            onClick={onClick}
+          >
+            Søk
+          </button>
+        </div>
       </div>
 
-      <div className="col-12 button-div">
-        <button
-          type="submit"
-          className="btn btn-primary btn-lg button-search"
-          onClick={onClick}
-        >
-          Søk
-        </button>
+      <div className="col-md-6">
+        {showResults ? (
+          <div className="container food-result-container">
+            <img
+              src={keyholeLgog}
+              className="keyhole-logo img-fluid"
+              alt="keyhole logo"
+            />
+            <h5>Nøkkelhullet</h5>
+            <div className="row">
+              <div className="col-md-10">
+                <p>Produktet innfrir Nøkkelhullet. </p>
+              </div>
+              <div className="col-md-2">
+                <FontAwesomeIcon
+                  className="info-button"
+                  icon={faCircleInfo}
+                  onClick={onClickInfo}
+                />
+              </div>
+            </div>
+            {info ? (
+              <div className="container info-div row">
+                <div className="col-md-10">
+                  <p>
+                    Les mer om hvilke krav det stilles for merking av
+                    Nokkellhullet på Lovdatas "Forskrift om frivillig merking a
+                    nœringsmidler med Nokkellhullet":
+                    <a
+                      href="https://lovdata.no/dokument/SF/forskrift/2015-02-18-139"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      lovdata.no
+                    </a>
+                  </p>
+                </div>
+                <div className="col-md-2">
+                  <FontAwesomeIcon
+                    className="x-button"
+                    icon={faXmarkCircle}
+                    onClick={onClickClose}
+                  />
+                </div>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+        {showResults === false && (
+          <div className="container food-negResult-container">
+            <h5>Nøkkelhullet</h5>
+            <div className="row">
+              <div className="col-md-10">
+                <p>Produktet innfrir ikke Nøkkelhullet.</p>
+                {showEmptyResult ? (
+                  <p>** Obligatoriske næringsverdier kan ikke være tomme.</p>
+                ) : null}
+
+                {fett ? (
+                  <p>** Fett verdien kan være høyst 1.5 g/100 g.</p>
+                ) : null}
+              </div>
+              <div className="col-md-2">
+                <FontAwesomeIcon
+                  className="info-button"
+                  icon={faCircleInfo}
+                  onClick={onClickInfo}
+                />
+              </div>
+            </div>
+            {info ? (
+              <div className="container info-div row">
+                <div className="col-md-10">
+                  <p>
+                    Les mer om hvordan oppnå kriteriene på Lovdata’s Forskrift
+                    om frivillig merking av næringsmidler med Nøkkelhullet:
+                    <a
+                      href="https://lovdata.no/dokument/SF/forskrift/2015-02-18-139"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      lovdata.no
+                    </a>
+                  </p>
+                </div>
+                <div className="col-md-2">
+                  <FontAwesomeIcon
+                    className="x-button"
+                    icon={faXmarkCircle}
+                    onClick={onClickClose}
+                  />
+                </div>
+              </div>
+            ) : null}
+          </div>
+        )}
+        <div style={{ padding: "5px" }}></div>
+        {showResults ? (
+          <div
+            className="container food-result-container"
+            style={{ background: "#ECF6D9" }}
+          >
+            <h5>Ernæringspåstander</h5>
+            <div className="row">
+              <div className="col-md-10">
+                <p>Produktet innfrir EFSA. </p>
+              </div>
+              <div className="col-md-2">
+                <FontAwesomeIcon className="info-button" icon={faCircleInfo} />
+              </div>
+            </div>
+          </div>
+        ) : null}
+        {showResults === false && (
+          <div className="container food-negResult-container">
+            <h5>Ernæringspåstander</h5>
+            <div className="row">
+              <div className="col-md-10">
+                <p>Produktet innfrir ikke EFSA. </p>
+              </div>
+              <div className="col-md-2">
+                <FontAwesomeIcon className="info-button" icon={faCircleInfo} />
+              </div>
+            </div>
+          </div>
+        )}
+        <div style={{ padding: "5px" }}></div>
+        {showResults ? (
+          <div
+            className="container food-result-container"
+            style={{ background: "#ECF6D9" }}
+          >
+            <h5>Helsepåstander</h5>
+            <div className="row">
+              <div className="col-md-10">
+                <p>Produktet innfrir Helsepåstander. </p>
+              </div>
+              <div className="col-md-2">
+                <FontAwesomeIcon className="info-button" icon={faCircleInfo} />
+              </div>
+            </div>
+          </div>
+        ) : null}
+        {showResults === false && (
+          <div className="container food-negResult-container">
+            <h5>Helsepåstander</h5>
+            <div className="row">
+              <div className="col-md-10">
+                <p>Produktet innfrir ikke Helsepåstander. </p>
+              </div>
+              <div className="col-md-2">
+                <FontAwesomeIcon className="info-button" icon={faCircleInfo} />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
