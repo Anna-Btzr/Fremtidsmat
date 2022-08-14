@@ -3,6 +3,9 @@ import Select from "react-select";
 import "./App.css";
 import HeaderCalculator from "./HeaderCalculator";
 
+import Kategori1 from "./Kategori1";
+import Kategori3 from "./Kategori3";
+import Kategori4 from "./Kategori4";
 import Kategori12a from "./Kategori12a";
 import Kategori19 from "./Kategori19";
 import Kategori27 from "./Kategori27";
@@ -522,6 +525,12 @@ const Calculator = () => {
         </div>
 
         <div>
+          {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
+            selectsProduct === "kategori 1" && <Kategori1 />}
+          {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
+            selectsProduct === "kategori 3" && <Kategori3 />}
+          {selectsGroup === "mel, gryn og ris" &&
+            selectsProduct === "kategori 4" && <Kategori4 />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
             selectsProduct === "kategori 12a" && <Kategori12a />}
