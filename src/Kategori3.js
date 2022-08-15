@@ -24,6 +24,7 @@ const Kategori3 = () => {
   const [mettede, setMettede] = useState(false);
   const [mettedeNull, setMettedeNull] = useState(false);
   const [karbohydrat, setKarbohydrat] = useState(false);
+  const [hvoravSukkerarter, setHvoravSukkerarter] = useState(false);
   const [sukkerarter, setSukkerarter] = useState(false);
   const [protein, setProtein] = useState(false);
   const [salt, setSalt] = useState(false);
@@ -35,8 +36,9 @@ const Kategori3 = () => {
     energiKj: "",
     energiKcal: "",
     fett: "",
-    mettende: "",
+    mettede: "",
     karbohydrat: "",
+    hvoravSukkerarter: "",
     sukkerarter: "",
     protein: "",
     salt: "",
@@ -59,6 +61,7 @@ const Kategori3 = () => {
       nutrition.mettede !== "" &&
       nutrition.mettede <= 10 &&
       nutrition.karbohydrat !== "" &&
+      nutrition.hvoravSukkerarter !== "" &&
       nutrition.sukkerarter !== "" &&
       nutrition.protein !== "" &&
       nutrition.salt !== "" &&
@@ -74,6 +77,7 @@ const Kategori3 = () => {
       setMettede(false);
       setMettedeNull(false);
       setKarbohydrat(false);
+      setHvoravSukkerarter(false);
       setSukkerarter(false);
       setProtein(false);
       setSalt(false);
@@ -125,6 +129,17 @@ const Kategori3 = () => {
         setShowEmptyResult(true);
       } else {
         setKarbohydrat(false);
+      }
+
+      if (
+        nutrition.hvoravSukkerarter === "" ||
+        nutrition.hvoravSukkerarter < 0
+      ) {
+        setHvoravSukkerarter(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setHvoravSukkerarter(false);
       }
 
       if (nutrition.sukkerarter === "" || nutrition.sukkerarter < 0) {
@@ -362,6 +377,37 @@ const Kategori3 = () => {
                     step="any"
                     name="karbohydrat"
                     value={nutrition.karbohydrat}
+                    onChange={changeHandle}
+                    className="form-control"
+                  ></input>
+                </td>
+              </tr>
+
+              <tr className={hvoravSukkerarter ? "alert-box" : null}>
+                <th scope="row" className="table-font">
+                  {hvoravSukkerarter ? (
+                    <Tooltip
+                      title="Mangler verdi i hvorav sukkerarter parameter"
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="alert-icon"
+                          icon={faCircleExclamation}
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : null}{" "}
+                  Hvorav sukkerarter (g)
+                </th>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="hvoravSukkerarter"
+                    value={nutrition.hvoravSukkerarter}
                     onChange={changeHandle}
                     className="form-control"
                   ></input>

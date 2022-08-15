@@ -6,6 +6,13 @@ import HeaderCalculator from "./HeaderCalculator";
 import Kategori1 from "./Kategori1";
 import Kategori3 from "./Kategori3";
 import Kategori4 from "./Kategori4";
+import Kategori5 from "./Kategori5";
+import Kategori6 from "./Kategori6";
+import Kategori7 from "./Kategori7";
+import Kategori8a from "./Kategori8a";
+import Kategori8b from "./Kategori8b";
+import Kategori9 from "./Kategori9";
+import Kategori10 from "./Kategori10";
 import Kategori12a from "./Kategori12a";
 import Kategori19 from "./Kategori19";
 import Kategori27 from "./Kategori27";
@@ -97,27 +104,27 @@ const Calculator = () => {
     {
       value: "kategori 7",
       label:
-        "7. Grøt og grøtpulver (tilberedt ifølge produsentens anvisning) som inneholder minst 55 % fullkorn av produktets tørrstoffinnhold.Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden.",
+        "7. Grøt og grøtpulver (tilberedt ifølge produsentens anvisning) som inneholder minst 55 % fullkorn av produktets tørrstoffinnhold.Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden. Vilkårene gjelder for det spiseklare produktet.",
     },
     {
       value: "kategori 8a",
       label:
-        "8. a) Brød og brødmikser hvor bare væske og eventuelt gjær skal tilsettes, og som inneholder minst 30 % fullkorn av produktets tørrstoffinnhold. Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden. Produkter i gruppe 8 b) omfattes ikke. Glutenfrie brød og brødmikser skal inneholde minst 10 % fullkorn av produktets tørrstoffinnhold.",
+        "8. a) Brød og brødmikser hvor bare væske og eventuelt gjær skal tilsettes, og som inneholder minst 30 % fullkorn av produktets tørrstoffinnhold. Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden. Produkter i gruppe 8 b) omfattes ikke. Glutenfrie brød og brødmikser skal inneholde minst 10 % fullkorn av produktets tørrstoffinnhold. Vilkårene gjelder for det spiseklare produktet.",
     },
     {
       value: "kategori 8b",
       label:
-        "8. b) Rugbrød og andre rugbaserte produkter samt brødmikser hvor bare væske og eventuelt gjær skal tilsettes, som inneholder minst 35 % fullkorn av produktets tørrstoffinnhold. I produktene skal minst 30 % av kornsortene være rug.Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden.",
+        "8. b) Rugbrød og andre rugbaserte produkter samt brødmikser hvor bare væske og eventuelt gjær skal tilsettes, som inneholder minst 35 % fullkorn av produktets tørrstoffinnhold. I produktene skal minst 30 % av kornsortene være rug.Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden. Vilkårene gjelder for det spiseklare produktet.",
     },
     {
       value: "kategori 9",
       label:
-        "9. Knekkebrød, skonroker og melmikser til slike produkter, hvor bare væske og eventuelt gjær skal tilsettes. Produktet skal inneholde minst 50 % fullkorn av produktets tørrstoffinnhold. Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden. Tilsvarende glutenfrie produkter skal inneholde minst 15 % fullkorn av produktets tørrstoffinnhold.",
+        "9. Knekkebrød, skonroker og melmikser til slike produkter, hvor bare væske og eventuelt gjær skal tilsettes. Produktet skal inneholde minst 50 % fullkorn av produktets tørrstoffinnhold. Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden. Tilsvarende glutenfrie produkter skal inneholde minst 15 % fullkorn av produktets tørrstoffinnhold. Vilkårene gjelder for det spiseklare produktet.",
     },
     {
       value: "kategori 10",
       label:
-        "10. Pasta (ikke fylt) Produktet skal inneholde minst 50 % fullkorn av produktets tørrstoffinnhold. Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden. Glutenfri pasta (ikke fylt) har ikke krav til fullkorn.",
+        "10. Pasta (ikke fylt) Produktet skal inneholde minst 50 % fullkorn av produktets tørrstoffinnhold. Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden. Glutenfri pasta (ikke fylt) har ikke krav til fullkorn. Vilkårene gjelder for produktets tørrstoffinnhold.",
     },
   ];
 
@@ -531,6 +538,20 @@ const Calculator = () => {
             selectsProduct === "kategori 3" && <Kategori3 />}
           {selectsGroup === "mel, gryn og ris" &&
             selectsProduct === "kategori 4" && <Kategori4 />}
+          {selectsGroup === "mel, gryn og ris" &&
+            selectsProduct === "kategori 5" && <Kategori5 />}
+          {selectsGroup === "mel, gryn og ris" &&
+            selectsProduct === "kategori 6" && <Kategori6 />}
+          {selectsGroup === "grøt, brød og pasta" &&
+            selectsProduct === "kategori 7" && <Kategori7 />}
+          {selectsGroup === "grøt, brød og pasta" &&
+            selectsProduct === "kategori 8a" && <Kategori8a />}
+          {selectsGroup === "grøt, brød og pasta" &&
+            selectsProduct === "kategori 8b" && <Kategori8b />}
+          {selectsGroup === "grøt, brød og pasta" &&
+            selectsProduct === "kategori 9" && <Kategori9 />}
+          {selectsGroup === "grøt, brød og pasta" &&
+            selectsProduct === "kategori 10" && <Kategori10 />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
             selectsProduct === "kategori 12a" && <Kategori12a />}

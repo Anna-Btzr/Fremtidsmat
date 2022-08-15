@@ -7,7 +7,7 @@ import keyholeLgog from "./circle-keyhole-logo.png";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 
-const Kategori19 = () => {
+const Kategori8a = () => {
   const [showResults, setShowResults] = useState("");
   const [showEmptyResult, setShowEmptyResult] = useState("");
 
@@ -23,16 +23,17 @@ const Kategori19 = () => {
   const [fett, setFett] = useState(false);
   const [fettNull, setFettNull] = useState(false);
   const [mettede, setMettede] = useState(false);
-  const [mettedeNull, setMettedeNull] = useState(false);
   const [karbohydrat, setKarbohydrat] = useState(false);
   const [hvoravSukkerarter, setHvoravSukkerarter] = useState(false);
   const [sukkerarter, setSukkerarter] = useState(false);
+  const [sukkerarterNull, setSukkerarterNull] = useState(false);
   const [protein, setProtein] = useState(false);
   const [salt, setSalt] = useState(false);
   const [saltNull, setSaltNull] = useState(false);
   const [vitaminB12, setVitaminB12] = useState(false);
   const [kalsium, setKalsium] = useState(false);
   const [kostfiber, setKostfiber] = useState(false);
+  const [kostfiberNull, setKostfiberNull] = useState(false);
 
   const [nutrition, setNutrition] = useState({
     energiKj: "",
@@ -60,18 +61,19 @@ const Kategori19 = () => {
       nutrition.energiKj !== "" &&
       nutrition.energiKcal !== "" &&
       nutrition.fett !== "" &&
-      nutrition.fett <= 80 &&
+      nutrition.fett <= 7 &&
       nutrition.mettede !== "" &&
-      nutrition.mettede <= 26.4 &&
       nutrition.karbohydrat !== "" &&
       nutrition.hvoravSukkerarter !== "" &&
       nutrition.sukkerarter !== "" &&
+      nutrition.sukkerarter <= 5 &&
       nutrition.protein !== "" &&
       nutrition.salt !== "" &&
-      nutrition.salt <= 1.1 &&
+      nutrition.salt <= 1 &&
       nutrition.vitaminB12 !== "" &&
       nutrition.kalsium !== "" &&
-      nutrition.kostfiber !== ""
+      nutrition.kostfiber !== "" &&
+      nutrition.kostfiber >= 5
     ) {
       setShowResults(true);
       setShowEmptyResult(false);
@@ -80,16 +82,17 @@ const Kategori19 = () => {
       setFett(false);
       setFettNull(false);
       setMettede(false);
-      setMettedeNull(false);
       setKarbohydrat(false);
       setHvoravSukkerarter(false);
       setSukkerarter(false);
+      setSukkerarterNull(false);
       setProtein(false);
       setSalt(false);
       setSaltNull(false);
       setVitaminB12(false);
       setKalsium(false);
       setKostfiber(false);
+      setKostfiberNull(false);
     } else {
       if (nutrition.energiKj === "" || nutrition.energiKj < 0) {
         setEnergiKj(true);
@@ -114,7 +117,7 @@ const Kategori19 = () => {
       } else {
         setFettNull(false);
       }
-      if (nutrition.fett > 80) {
+      if (nutrition.fett > 7) {
         setFett(true);
         setShowResults(false);
       } else {
@@ -122,15 +125,9 @@ const Kategori19 = () => {
       }
 
       if (nutrition.mettede === "" || nutrition.mettede < 0) {
-        setMettedeNull(true);
-        setShowResults(false);
-        setShowEmptyResult(true);
-      } else {
-        setMettedeNull(false);
-      }
-      if (nutrition.mettede > 26.4) {
         setMettede(true);
         setShowResults(false);
+        setShowEmptyResult(true);
       } else {
         setMettede(false);
       }
@@ -155,9 +152,15 @@ const Kategori19 = () => {
       }
 
       if (nutrition.sukkerarter === "" || nutrition.sukkerarter < 0) {
-        setSukkerarter(true);
+        setSukkerarterNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
+      } else {
+        setSukkerarterNull(false);
+      }
+      if (nutrition.sukkerarter > 5) {
+        setSukkerarter(true);
+        setShowResults(false);
       } else {
         setSukkerarter(false);
       }
@@ -177,7 +180,7 @@ const Kategori19 = () => {
       } else {
         setSaltNull(false);
       }
-      if (nutrition.salt > 1.1) {
+      if (nutrition.salt > 1) {
         setSalt(true);
         setShowResults(false);
       } else {
@@ -201,9 +204,15 @@ const Kategori19 = () => {
       }
 
       if (nutrition.kostfiber === "" || nutrition.kostfiber < 0) {
-        setKostfiber(true);
+        setKostfiberNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
+      } else {
+        setKostfiberNull(false);
+      }
+      if (nutrition.kostfiber < 5) {
+        setKostfiber(true);
+        setShowResults(false);
       } else {
         setKostfiber(false);
       }
@@ -297,7 +306,7 @@ const Kategori19 = () => {
                 <th scope="row" className="table-font">
                   {fett ? (
                     <Tooltip
-                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden fett. Mengden på fett må være lavere enn eller lik 80 / 100 g for å møte kravene for Nøkkelhullsmerking."
+                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden fett. Mengden på fett må være lavere enn eller lik 7 g/ 100 g for å møte kravene for Nøkkelhullsmerking."
                       placement="right"
                       arrow
                     >
@@ -335,28 +344,9 @@ const Kategori19 = () => {
                 </td>
               </tr>
 
-              <tr
-                className={
-                  mettede
-                    ? "alert-box"
-                    : null || mettedeNull
-                    ? "alert-box"
-                    : null
-                }
-              >
+              <tr className={mettede ? "alert-box" : null}>
                 <th scope="row" className="table-font">
                   {mettede ? (
-                    <Tooltip
-                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden mettede fettsyrer. Mengden på mettede fettsyrer må være lavere enn eller lik 26,4 / 100 g for å møte kravene for Nøkkelhullsmerking."
-                      placement="right"
-                      arrow
-                    >
-                      <div className="icon">
-                        <FontAwesomeIcon className="alert-icon" icon={faBan} />
-                      </div>
-                    </Tooltip>
-                  ) : null}
-                  {mettedeNull ? (
                     <Tooltip
                       title="Mangler verdi i mettede fettsyrer parameter"
                       placement="right"
@@ -447,9 +437,28 @@ const Kategori19 = () => {
                 </td>
               </tr>
 
-              <tr className={sukkerarter ? "alert-box" : null}>
+              <tr
+                className={
+                  sukkerarter
+                    ? "alert-box"
+                    : null || sukkerarterNull
+                    ? "alert-box"
+                    : null
+                }
+              >
                 <th scope="row" className="table-font">
                   {sukkerarter ? (
+                    <Tooltip
+                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden sukkerarter. Mengden på sukkerarter må være lavere enn eller lik 5 g/ 100 g for å møte kravene for Nøkkelhullsmerking."
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon className="alert-icon" icon={faBan} />
+                      </div>
+                    </Tooltip>
+                  ) : null}
+                  {sukkerarterNull ? (
                     <Tooltip
                       title="Mangler verdi i sukkerarter parameter"
                       placement="right"
@@ -517,7 +526,7 @@ const Kategori19 = () => {
                 <th scope="row" className="table-font">
                   {salt ? (
                     <Tooltip
-                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden salt. Mengden på salt må være lavere enn eller lik 1.1 / 100 g for å møte kravene for Nøkkelhullsmerking."
+                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden salt. Mengden på salt må være lavere enn eller lik 1 g/ 100 g for å møte kravene for Nøkkelhullsmerking."
                       placement="right"
                       arrow
                     >
@@ -617,9 +626,28 @@ const Kategori19 = () => {
                 </td>
               </tr>
 
-              <tr className={kostfiber ? "alert-box" : null}>
+              <tr
+                className={
+                  kostfiber
+                    ? "alert-box"
+                    : null || kostfiberNull
+                    ? "alert-box"
+                    : null
+                }
+              >
                 <th scope="row" className="table-font">
                   {kostfiber ? (
+                    <Tooltip
+                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden kostfiber. Mengden på kostfiber må være høyst enn eller lik 5 g / 100 g for å møte kravene for Nøkkelhullsmerking."
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon className="alert-icon" icon={faBan} />
+                      </div>
+                    </Tooltip>
+                  ) : null}
+                  {kostfiberNull ? (
                     <Tooltip
                       title="Mangler verdi i kostfiber parameter"
                       placement="right"
@@ -720,19 +748,17 @@ const Kategori19 = () => {
                   <p>** Obligatoriske næringsverdier kan ikke være tomme.</p>
                 ) : null}
 
-                {fett ? (
-                  <p>** Fett verdien kan være høyst 80 g/100 g.</p>
-                ) : null}
+                {fett ? <p>** Fett verdien kan være høyst 7 g/100 g.</p> : null}
 
-                {mettede ? (
+                {sukkerarter ? (
                   <p>
-                    ** Mettede fettsyrer verdien kan være høyst 33% av
-                    fettinholdet.
+                    ** Tilsatte sukkerarter verdien kan være høyst 5 g/100 g.
                   </p>
                 ) : null}
 
-                {salt ? (
-                  <p>** Salt verdien kan være høyst 1.1 g/100 g.</p>
+                {salt ? <p>** Salt verdien kan være høyst 1 g/100 g.</p> : null}
+                {kostfiber ? (
+                  <p>** Kostfiber verdien kan være minst 5 g/100 g.</p>
                 ) : null}
               </div>
               <div className="col-md-2">
@@ -834,4 +860,4 @@ const Kategori19 = () => {
   );
 };
 
-export default Kategori19;
+export default Kategori8a;
