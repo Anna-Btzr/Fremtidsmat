@@ -18,6 +18,7 @@ const Kategori27 = () => {
   const onClickClose = () => {
     setInfo(false);
   };
+  //declare states-valuables
   const [energiKj, setEnergiKj] = useState(false);
   const [energiKcal, setEnergiKcal] = useState(false);
   const [fett, setFett] = useState(false);
