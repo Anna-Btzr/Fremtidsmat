@@ -13,7 +13,9 @@ import Kategori8a from "./Kategori8a";
 import Kategori8b from "./Kategori8b";
 import Kategori9 from "./Kategori9";
 import Kategori10 from "./Kategori10";
-
+import Kategori16 from "./Kategori16";
+import Kategori17 from "./Kategori17";
+import Kategori18 from "./Kategori18";
 import Kategori19 from "./Kategori19";
 import Kategori27 from "./Kategori27";
 
@@ -482,6 +484,12 @@ const Calculator = () => {
           {selectsGroup === "grøt, brød og pasta" &&
             selectsProduct === "kategori 10" && <Kategori10 />}
 
+          {selectsGroup === "ost og vegetabilske alternativer" &&
+            selectsProduct === "kategori 16" && <Kategori16 />}
+          {selectsGroup === "ost og vegetabilske alternativer" &&
+            selectsProduct === "kategori 17" && <Kategori17 />}
+          {selectsGroup === "ost og vegetabilske alternativer" &&
+            selectsProduct === "kategori 18" && <Kategori18 />}
           {selectsGroup === "matfett og oljer" &&
             selectsProduct === "kategori 19" && <Kategori19 />}
           {selectsGroup === "ferdigretter" &&
