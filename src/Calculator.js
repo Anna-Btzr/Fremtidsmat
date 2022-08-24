@@ -32,8 +32,11 @@ import Kategori24c from "./Kategori24c";
 
 import Kategori25a from "./Kategori25a";
 import Kategori25b from "./Kategori25b";
-
+import Kategori26 from "./Kategori26";
 import Kategori27 from "./Kategori27";
+import Kategori28 from "./Kategori28";
+import Kategori29 from "./Kategori29";
+import Kategori30 from "./Kategori30";
 
 const Calculator = () => {
   //matvaregruppe selector
@@ -533,9 +536,16 @@ const Calculator = () => {
             selectsProduct === "kategori 25a" && <Kategori25a />}
           {selectsGroup === "helt eller delvis vegetabilske produkter" &&
             selectsProduct === "kategori 25b" && <Kategori25b />}
-
+          {selectsGroup === "ferdigretter" &&
+            selectsProduct === "kategori 26" && <Kategori26 />}
           {selectsGroup === "ferdigretter" &&
             selectsProduct === "kategori 27" && <Kategori27 />}
+          {selectsGroup === "ferdigretter" &&
+            selectsProduct === "kategori 28" && <Kategori28 />}
+          {selectsGroup === "ferdigretter" &&
+            selectsProduct === "kategori 29" && <Kategori29 />}
+          {selectsGroup === "ferdigretter" &&
+            selectsProduct === "kategori 30" && <Kategori30 />}
         </div>
       </div>
     </div>
