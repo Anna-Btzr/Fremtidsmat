@@ -4,6 +4,7 @@ import "./App.css";
 import HeaderCalculator from "./HeaderCalculator";
 
 import Kategori1 from "./Kategori1";
+
 import Kategori3 from "./Kategori3";
 import Kategori4 from "./Kategori4";
 import Kategori5 from "./Kategori5";
@@ -13,10 +14,17 @@ import Kategori8a from "./Kategori8a";
 import Kategori8b from "./Kategori8b";
 import Kategori9 from "./Kategori9";
 import Kategori10 from "./Kategori10";
+
 import Kategori16 from "./Kategori16";
 import Kategori17 from "./Kategori17";
 import Kategori18 from "./Kategori18";
 import Kategori19 from "./Kategori19";
+
+import Kategori22a from "./Kategori22a";
+import Kategori22b from "./Kategori22b";
+import Kategori22c from "./Kategori22c";
+import Kategori22d from "./Kategori22d";
+
 import Kategori27 from "./Kategori27";
 
 const Calculator = () => {
@@ -465,6 +473,7 @@ const Calculator = () => {
         <div>
           {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
             selectsProduct === "kategori 1" && <Kategori1 />}
+
           {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
             selectsProduct === "kategori 3" && <Kategori3 />}
           {selectsGroup === "mel, gryn og ris" &&
@@ -492,6 +501,16 @@ const Calculator = () => {
             selectsProduct === "kategori 18" && <Kategori18 />}
           {selectsGroup === "matfett og oljer" &&
             selectsProduct === "kategori 19" && <Kategori19 />}
+
+          {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
+            selectsProduct === "kategori 22a" && <Kategori22a />}
+          {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
+            selectsProduct === "kategori 22b" && <Kategori22b />}
+          {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
+            selectsProduct === "kategori 22c" && <Kategori22c />}
+          {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
+            selectsProduct === "kategori 22d" && <Kategori22d />}
+
           {selectsGroup === "ferdigretter" &&
             selectsProduct === "kategori 27" && <Kategori27 />}
         </div>
