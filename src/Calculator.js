@@ -24,6 +24,11 @@ import Kategori22a from "./Kategori22a";
 import Kategori22b from "./Kategori22b";
 import Kategori22c from "./Kategori22c";
 import Kategori22d from "./Kategori22d";
+import Kategori23 from "./Kategori23";
+
+import Kategori24a from "./Kategori24a";
+import Kategori24b from "./Kategori24b";
+import Kategori24c from "./Kategori24c";
 
 import Kategori27 from "./Kategori27";
 
@@ -510,6 +515,15 @@ const Calculator = () => {
             selectsProduct === "kategori 22c" && <Kategori22c />}
           {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
             selectsProduct === "kategori 22d" && <Kategori22d />}
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 23" && <Kategori23 />}
+
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24a" && <Kategori24a />}
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24b" && <Kategori24b />}
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24c" && <Kategori24c />}
 
           {selectsGroup === "ferdigretter" &&
             selectsProduct === "kategori 27" && <Kategori27 />}
