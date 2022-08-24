@@ -19,7 +19,7 @@ import Kategori16 from "./Kategori16";
 import Kategori17 from "./Kategori17";
 import Kategori18 from "./Kategori18";
 import Kategori19 from "./Kategori19";
-
+import Kategori20 from "./Kategori20";
 import Kategori22a from "./Kategori22a";
 import Kategori22b from "./Kategori22b";
 import Kategori22c from "./Kategori22c";
@@ -29,6 +29,9 @@ import Kategori23 from "./Kategori23";
 import Kategori24a from "./Kategori24a";
 import Kategori24b from "./Kategori24b";
 import Kategori24c from "./Kategori24c";
+
+import Kategori25a from "./Kategori25a";
+import Kategori25b from "./Kategori25b";
 
 import Kategori27 from "./Kategori27";
 
@@ -506,7 +509,8 @@ const Calculator = () => {
             selectsProduct === "kategori 18" && <Kategori18 />}
           {selectsGroup === "matfett og oljer" &&
             selectsProduct === "kategori 19" && <Kategori19 />}
-
+          {selectsGroup === "matfett og oljer" &&
+            selectsProduct === "kategori 20" && <Kategori20 />}
           {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
             selectsProduct === "kategori 22a" && <Kategori22a />}
           {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
@@ -524,6 +528,11 @@ const Calculator = () => {
             selectsProduct === "kategori 24b" && <Kategori24b />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 24c" && <Kategori24c />}
+
+          {selectsGroup === "helt eller delvis vegetabilske produkter" &&
+            selectsProduct === "kategori 25a" && <Kategori25a />}
+          {selectsGroup === "helt eller delvis vegetabilske produkter" &&
+            selectsProduct === "kategori 25b" && <Kategori25b />}
 
           {selectsGroup === "ferdigretter" &&
             selectsProduct === "kategori 27" && <Kategori27 />}
