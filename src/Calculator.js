@@ -14,7 +14,16 @@ import Kategori8a from "./Kategori8a";
 import Kategori8b from "./Kategori8b";
 import Kategori9 from "./Kategori9";
 import Kategori10 from "./Kategori10";
-
+import Kategori11a from "./Kategori11a";
+import Kategori11b from "./Kategori11b";
+import Kategori12a from "./Kategori12a";
+import Kategori12b from "./Kategori12b";
+import Kategori13a from "./Kategori13a";
+import Kategori13b from "./Kategori13b";
+import Kategori14a from "./Kategori14a";
+import Kategori14b from "./Kategori14b";
+import Kategori15a from "./Kategori15a";
+import Kategori15b from "./Kategori15b";
 import Kategori16 from "./Kategori16";
 import Kategori17 from "./Kategori17";
 import Kategori18 from "./Kategori18";
@@ -52,6 +61,10 @@ const Calculator = () => {
       label: "Mel, gryn og ris",
     },
     { value: "grøt, brød og pasta", label: "Grøt, brød og pasta" },
+    {
+      value: "melk, syrnede melkeprodukter og vegetabilske alternativer",
+      label: "Melk, syrnede melkeprodukter og vegetabilske alternativer",
+    },
 
     {
       value: "ost og vegetabilske alternativer",
@@ -145,6 +158,58 @@ const Calculator = () => {
       value: "kategori 10",
       label:
         "10. Pasta (ikke fylt) Produktet skal inneholde minst 50 % fullkorn av produktets tørrstoffinnhold. Inneholder produktet grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter, medregnes ikke den andelen av produktet som utgjøres av disse, ved beregningen av fullkornsmengden. Glutenfri pasta (ikke fylt) har ikke krav til fullkorn. Vilkårene gjelder for produktets tørrstoffinnhold.",
+    },
+  ];
+  const selectMelkeprodukter = [
+    {
+      value: "kategori 11a",
+      label:
+        "11. a) Melk og syrnede melkeprodukter som er beregnet til å drikke, uten tilsatt smak. Tilsvarende laktosefrie produkter og laktosefrie melkedrikker omfattes også.",
+    },
+    {
+      value: "kategori 11b",
+      label:
+        "11. b) Vegetabilske produkter med samme bruksområde som produkter i gruppe 11 a), uten tilsatt smak.",
+    },
+    {
+      value: "kategori 12a",
+      label:
+        "12. a) Syrnede melkeprodukter som ikke er beregnet til å drikke, uten tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
+    },
+    {
+      value: "kategori 12b",
+      label:
+        "12. b) Vegetabilske produkter med samme bruksområde som produkter i gruppe 12 a), uten tilsatt smak.",
+    },
+    {
+      value: "kategori 13a",
+      label:
+        "13. a) (Ikke vegetabilske) Syrnede melkeprodukter som ikke er beregnet til å drikke, med tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
+    },
+    {
+      value: "kategori 13b",
+      label:
+        "13. b) (Vegetabilske) Syrnede melkeprodukter som ikke er beregnet til å drikke, med tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
+    },
+    {
+      value: "kategori 14a",
+      label:
+        "14. a) (Ikke vegetabilske) Produkter som består av en blanding av melk og fløte med samme bruksområde som fløte og tilsvarende syrnede produkter, uten tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
+    },
+    {
+      value: "kategori 14b",
+      label:
+        "14. b) (Helt eller delvis vegetabilske) Produkter som består av en blanding av melk og fløte med samme bruksområde som fløte og tilsvarende syrnede produkter, uten tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
+    },
+    {
+      value: "kategori 15a",
+      label:
+        "15. a) (Ikke vegetabilske) Produkter som består av en blanding av melk og fløte med samme bruksområde som fløte og tilsvarende syrnede produkter, med tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
+    },
+    {
+      value: "kategori 15b",
+      label:
+        "15. b) (Helt eller delvis vegetabilske) Produkter som består av en blanding av melk og fløte med samme bruksområde som fløte og tilsvarende syrnede produkter, med tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
     },
   ];
 
@@ -375,6 +440,21 @@ const Calculator = () => {
             </div>
           )}
 
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabilske alternativer" && (
+            <div>
+              <label for="mat" class="form-label">
+                <strong>Matkategori</strong>
+              </label>
+              <Select
+                placeholder={<div>Velg mat</div>}
+                className="form-select-md mb-3"
+                onChange={handlerProduct}
+                options={selectMelkeprodukter}
+              />
+            </div>
+          )}
+
           {selectsGroup === "ost og vegetabilske alternativer" && (
             <div>
               <label for="mat" class="form-label">
@@ -505,7 +585,36 @@ const Calculator = () => {
             selectsProduct === "kategori 9" && <Kategori9 />}
           {selectsGroup === "grøt, brød og pasta" &&
             selectsProduct === "kategori 10" && <Kategori10 />}
-
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
+            selectsProduct === "kategori 11a" && <Kategori11a />}
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
+            selectsProduct === "kategori 11b" && <Kategori11b />}
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
+            selectsProduct === "kategori 12a" && <Kategori12a />}
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
+            selectsProduct === "kategori 12b" && <Kategori12b />}
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
+            selectsProduct === "kategori 13a" && <Kategori13a />}
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
+            selectsProduct === "kategori 13b" && <Kategori13b />}
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
+            selectsProduct === "kategori 14a" && <Kategori14a />}
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
+            selectsProduct === "kategori 14b" && <Kategori14b />}
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
+            selectsProduct === "kategori 15a" && <Kategori15a />}
+          {selectsGroup ===
+            "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
+            selectsProduct === "kategori 15b" && <Kategori15b />}
           {selectsGroup === "ost og vegetabilske alternativer" &&
             selectsProduct === "kategori 16" && <Kategori16 />}
           {selectsGroup === "ost og vegetabilske alternativer" &&
