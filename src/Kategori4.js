@@ -55,18 +55,18 @@ const Kategori4 = () => {
 
   const onClick = () => {
     if (
-      nutrition.energiKj != "" &&
-      nutrition.energiKcal != "" &&
-      nutrition.fett != "" &&
-      nutrition.mettede != "" &&
-      nutrition.karbohydrat != "" &&
-      nutrition.hvoravSukkerarter != "" &&
-      nutrition.sukkerarter != "" &&
-      nutrition.protein != "" &&
-      nutrition.salt != "" &&
-      nutrition.vitaminB12 != "" &&
-      nutrition.kalsium != "" &&
-      nutrition.kostfiber != "" &&
+      nutrition.energiKj !== "" &&
+      nutrition.energiKcal !== "" &&
+      nutrition.fett !== "" &&
+      nutrition.mettede !== "" &&
+      nutrition.karbohydrat !== "" &&
+      nutrition.hvoravSukkerarter !== "" &&
+      nutrition.sukkerarter !== "" &&
+      nutrition.protein !== "" &&
+      nutrition.salt !== "" &&
+      nutrition.vitaminB12 !== "" &&
+      nutrition.kalsium !== "" &&
+      nutrition.kostfiber !== "" &&
       nutrition.kostfiber >= 6
     ) {
       setShowResults(true);
