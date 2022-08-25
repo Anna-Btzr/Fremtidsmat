@@ -58,21 +58,21 @@ const Kategori6 = () => {
 
   const onClick = () => {
     if (
-      nutrition.energiKj != "" &&
-      nutrition.energiKcal != "" &&
-      nutrition.fett != "" &&
+      nutrition.energiKj !== "" &&
+      nutrition.energiKcal !== "" &&
+      nutrition.fett !== "" &&
       nutrition.fett <= 4 &&
-      nutrition.mettede != "" &&
-      nutrition.karbohydrat != "" &&
-      nutrition.hvoravSukkerarter != "" &&
-      nutrition.sukkerarter != "" &&
+      nutrition.mettede !== "" &&
+      nutrition.karbohydrat !== "" &&
+      nutrition.hvoravSukkerarter !== "" &&
+      nutrition.sukkerarter !== "" &&
       nutrition.sukkerarter <= 5 &&
-      nutrition.protein != "" &&
-      nutrition.salt != "" &&
+      nutrition.protein !== "" &&
+      nutrition.salt !== "" &&
       nutrition.salt <= 0.3 &&
-      nutrition.vitaminB12 != "" &&
-      nutrition.kalsium != "" &&
-      nutrition.kostfiber != "" &&
+      nutrition.vitaminB12 !== "" &&
+      nutrition.kalsium !== "" &&
+      nutrition.kostfiber !== "" &&
       nutrition.kostfiber >= 1
     ) {
       setShowResults(true);
@@ -94,7 +94,7 @@ const Kategori6 = () => {
       setKostfiber(false);
       setKostfiberNull(false);
     } else {
-      if (nutrition.energiKj == "" || nutrition.energiKj < 0) {
+      if (nutrition.energiKj === "" || nutrition.energiKj < 0) {
         setEnergiKj(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -102,7 +102,7 @@ const Kategori6 = () => {
         setEnergiKj(false);
       }
 
-      if (nutrition.energiKcal == "" || nutrition.energiKcal < 0) {
+      if (nutrition.energiKcal === "" || nutrition.energiKcal < 0) {
         setEnergiKcal(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -110,7 +110,7 @@ const Kategori6 = () => {
         setEnergiKcal(false);
       }
 
-      if (nutrition.fett == "" || nutrition.fett < 0) {
+      if (nutrition.fett === "" || nutrition.fett < 0) {
         setFettNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -124,7 +124,7 @@ const Kategori6 = () => {
         setFett(false);
       }
 
-      if (nutrition.mettede == "" || nutrition.mettede < 0) {
+      if (nutrition.mettede === "" || nutrition.mettede < 0) {
         setMettede(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -132,7 +132,7 @@ const Kategori6 = () => {
         setMettede(false);
       }
 
-      if (nutrition.karbohydrat == "" || nutrition.karbohydrat < 0) {
+      if (nutrition.karbohydrat === "" || nutrition.karbohydrat < 0) {
         setKarbohydrat(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -141,7 +141,7 @@ const Kategori6 = () => {
       }
 
       if (
-        nutrition.hvoravSukkerarter == "" ||
+        nutrition.hvoravSukkerarter === "" ||
         nutrition.hvoravSukkerarter < 0
       ) {
         setHvoravSukkerarter(true);
@@ -151,7 +151,7 @@ const Kategori6 = () => {
         setHvoravSukkerarter(false);
       }
 
-      if (nutrition.sukkerarter == "" || nutrition.sukkerarter < 0) {
+      if (nutrition.sukkerarter === "" || nutrition.sukkerarter < 0) {
         setSukkerarterNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -165,7 +165,7 @@ const Kategori6 = () => {
         setSukkerarter(false);
       }
 
-      if (nutrition.protein == "" || nutrition.protein < 0) {
+      if (nutrition.protein === "" || nutrition.protein < 0) {
         setProtein(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -173,7 +173,7 @@ const Kategori6 = () => {
         setProtein(false);
       }
 
-      if (nutrition.salt == "" || nutrition.salt < 0) {
+      if (nutrition.salt === "" || nutrition.salt < 0) {
         setSaltNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -187,7 +187,7 @@ const Kategori6 = () => {
         setSalt(false);
       }
 
-      if (nutrition.vitaminB12 == "" || nutrition.vitaminB12 < 0) {
+      if (nutrition.vitaminB12 === "" || nutrition.vitaminB12 < 0) {
         setVitaminB12(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -195,7 +195,7 @@ const Kategori6 = () => {
         setVitaminB12(false);
       }
 
-      if (nutrition.kalsium == "" || nutrition.kalsium < 0) {
+      if (nutrition.kalsium === "" || nutrition.kalsium < 0) {
         setKalsium(true);
         setShowResults(false);
         setShowEmptyResult(true);
@@ -203,7 +203,7 @@ const Kategori6 = () => {
         setKalsium(false);
       }
 
-      if (nutrition.kostfiber == "" || nutrition.kostfiber < 0) {
+      if (nutrition.kostfiber === "" || nutrition.kostfiber < 0) {
         setKostfiberNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
