@@ -7,7 +7,7 @@ import keyholeLgog from "./circle-keyhole-logo.png";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 
-const Kategori24a = () => {
+const Kategori24c1 = () => {
   const [showResults, setShowResults] = useState("");
   const [showEmptyResult, setShowEmptyResult] = useState("");
 
@@ -69,7 +69,7 @@ const Kategori24a = () => {
       nutrition.sukkerarter <= 3 &&
       nutrition.protein !== "" &&
       nutrition.salt !== "" &&
-      nutrition.salt <= 1 &&
+      nutrition.salt <= 2 &&
       nutrition.vitaminB12 !== "" &&
       nutrition.kalsium !== "" &&
       nutrition.kostfiber !== ""
@@ -179,7 +179,7 @@ const Kategori24a = () => {
       } else {
         setSaltNull(false);
       }
-      if (nutrition.salt > 1) {
+      if (nutrition.salt > 2) {
         setSalt(true);
         setShowResults(false);
       } else {
@@ -519,7 +519,7 @@ const Kategori24a = () => {
                 <th scope="row" className="table-font">
                   {salt ? (
                     <Tooltip
-                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden salt. Mengden på salt må være lavere enn eller lik 1 g / 100 g for å møte kravene for Nøkkelhullsmerking."
+                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden salt. Mengden på salt må være lavere enn eller lik 2 g / 100 g for å møte kravene for Nøkkelhullsmerking."
                       placement="right"
                       arrow
                     >
@@ -731,7 +731,7 @@ const Kategori24a = () => {
                   </p>
                 ) : null}
 
-                {salt ? <p>** Salt verdien kan være høyst 1 g/100 g.</p> : null}
+                {salt ? <p>** Salt verdien kan være høyst 2 g/100 g.</p> : null}
               </div>
               <div className="col-md-2">
                 <FontAwesomeIcon
@@ -832,4 +832,4 @@ const Kategori24a = () => {
   );
 };
 
-export default Kategori24a;
+export default Kategori24c1;

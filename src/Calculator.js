@@ -37,9 +37,14 @@ import Kategori22c from "./Kategori22c";
 import Kategori22d from "./Kategori22d";
 import Kategori23 from "./Kategori23";
 import Kategori24 from "./Kategori24";
-import Kategori24a from "./Kategori24a";
-import Kategori24b from "./Kategori24b";
-import Kategori24c from "./Kategori24c";
+import Kategori24a1 from "./Kategori24a1";
+import Kategori24a2 from "./Kategori24a2";
+import Kategori24b1 from "./Kategori24b1";
+import Kategori24b2 from "./Kategori24b2";
+import Kategori24b3 from "./Kategori24b3";
+import Kategori24b4 from "./Kategori24b4";
+import Kategori24c1 from "./Kategori24c1";
+import Kategori24c2 from "./Kategori24c2";
 import Kategori25 from "./Kategori25";
 import Kategori25a from "./Kategori25a";
 import Kategori25b from "./Kategori25b";
@@ -164,52 +169,52 @@ const Calculator = () => {
   ];
   const selectMelkeprodukter = [
     {
-      value: "kategori 11a",
+      value: "kategori 11 a",
       label:
         "11. a) Melk og syrnede melkeprodukter som er beregnet til å drikke, uten tilsatt smak. Tilsvarende laktosefrie produkter og laktosefrie melkedrikker omfattes også.",
     },
     {
-      value: "kategori 11b",
+      value: "kategori 11 b",
       label:
         "11. b) Vegetabilske produkter med samme bruksområde som produkter i gruppe 11 a), uten tilsatt smak.",
     },
     {
-      value: "kategori 12a",
+      value: "kategori 12 a",
       label:
         "12. a) Syrnede melkeprodukter som ikke er beregnet til å drikke, uten tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
     },
     {
-      value: "kategori 12b",
+      value: "kategori 12 b",
       label:
         "12. b) Vegetabilske produkter med samme bruksområde som produkter i gruppe 12 a), uten tilsatt smak.",
     },
     {
-      value: "kategori 13a",
+      value: "kategori 13 a",
       label:
         "13. a) (Ikke vegetabilske) Syrnede melkeprodukter som ikke er beregnet til å drikke, med tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
     },
     {
-      value: "kategori 13b",
+      value: "kategori 13 b",
       label:
         "13. b) (Vegetabilske) Syrnede melkeprodukter som ikke er beregnet til å drikke, med tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
     },
     {
-      value: "kategori 14a",
+      value: "kategori 14 a",
       label:
         "14. a) (Ikke vegetabilske) Produkter som består av en blanding av melk og fløte med samme bruksområde som fløte og tilsvarende syrnede produkter, uten tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
     },
     {
-      value: "kategori 14b",
+      value: "kategori 14 b",
       label:
         "14. b) (Helt eller delvis vegetabilske) Produkter som består av en blanding av melk og fløte med samme bruksområde som fløte og tilsvarende syrnede produkter, uten tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
     },
     {
-      value: "kategori 15a",
+      value: "kategori 15 a",
       label:
         "15. a) (Ikke vegetabilske) Produkter som består av en blanding av melk og fløte med samme bruksområde som fløte og tilsvarende syrnede produkter, med tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
     },
     {
-      value: "kategori 15b",
+      value: "kategori 15 b",
       label:
         "15. b) (Helt eller delvis vegetabilske) Produkter som består av en blanding av melk og fløte med samme bruksområde som fløte og tilsvarende syrnede produkter, med tilsatt smak. Tilsvarende laktosefrie produkter omfattes også.",
     },
@@ -286,19 +291,39 @@ const Calculator = () => {
         "24. Kjøtt og produkter som inneholder kjøtt. Minst 50 % av produktet skal være framstilt av kjøtt, korn (100 % fullkorn), grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) eller rotfrukter. Innholdet av kjøtt skal likevel være minst 20 % av produktet. Dette gjelder ikke for leverpostei som skal inneholde minst 35 % kjøtt. Produktet kan inneholde saus eller lake. Prosentandelen og vilkårene gjelder for den delen av produktet som er beregnet til å spise. Produktet kan være panert, hvis tilberedningen ifølge produsentens anvisning, ikke tilfører produktet fett.",
     },
     {
-      value: "kategori 24a",
+      value: "kategori 24 a1",
       label:
-        "24. a) Rå produkter av hele eller utskårne kjøttstykker som er overflatemarinert eller krydret. -for stikksaltede produkter likevel",
+        "24. a) Rå produkter av hele eller utskårne kjøttstykker som er overflatemarinert eller krydret.",
     },
     {
-      value: "kategori 24b",
-      label:
-        "24. b) Rå eller spiseklare produkter som inneholder kvernet kjøtt. - for pølser likevel – for påleggspølser likevel – for karbonadedeig likevel",
+      value: "kategori 24 a2",
+      label: "- for stikksaltede produkter likevel",
     },
     {
-      value: "kategori 24c",
+      value: "kategori 24 b1",
       label:
-        "24. c) Spiseklare eller røkte produkter som inneholder helt eller utskåret kjøtt, og som ikke omfattes som rå produkter av hele eller utskårne kjøttstykker som er overflatemarinert eller krydret. – for påleggsprodukter likevel",
+        "24. b) Rå eller spiseklare produkter som inneholder kvernet kjøtt.",
+    },
+    {
+      value: "kategori 24 b2",
+      label: "- for pølser likevel",
+    },
+    {
+      value: "kategori 24 b3",
+      label: "- for påleggspølser likevel",
+    },
+    {
+      value: "kategori 24 b4",
+      label: "- for karbonadedeig likevel",
+    },
+    {
+      value: "kategori 24 c1",
+      label:
+        "24. c) Spiseklare eller røkte produkter som inneholder helt eller utskåret kjøtt, og som ikke omfattes av gruppe 24 b).",
+    },
+    {
+      value: "kategori 24 c2",
+      label: "- for påleggsprodukter likevel",
     },
   ];
 
@@ -591,34 +616,34 @@ const Calculator = () => {
             selectsProduct === "kategori 10" && <Kategori10 />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
-            selectsProduct === "kategori 11a" && <Kategori11a />}
+            selectsProduct === "kategori 11 a" && <Kategori11a />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
-            selectsProduct === "kategori 11b" && <Kategori11b />}
+            selectsProduct === "kategori 11 b" && <Kategori11b />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
-            selectsProduct === "kategori 12a" && <Kategori12a />}
+            selectsProduct === "kategori 12 a" && <Kategori12a />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
-            selectsProduct === "kategori 12b" && <Kategori12b />}
+            selectsProduct === "kategori 12 b" && <Kategori12b />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
-            selectsProduct === "kategori 13a" && <Kategori13a />}
+            selectsProduct === "kategori 13 a" && <Kategori13a />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
-            selectsProduct === "kategori 13b" && <Kategori13b />}
+            selectsProduct === "kategori 13 b" && <Kategori13b />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
-            selectsProduct === "kategori 14a" && <Kategori14a />}
+            selectsProduct === "kategori 14 a" && <Kategori14a />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
-            selectsProduct === "kategori 14b" && <Kategori14b />}
+            selectsProduct === "kategori 14 b" && <Kategori14b />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
-            selectsProduct === "kategori 15a" && <Kategori15a />}
+            selectsProduct === "kategori 15 a" && <Kategori15a />}
           {selectsGroup ===
             "melk, syrnede melkeprodukter og vegetabliske alternativer" &&
-            selectsProduct === "kategori 15b" && <Kategori15b />}
+            selectsProduct === "kategori 15 b" && <Kategori15b />}
           {selectsGroup === "ost og vegetabilske alternativer" &&
             selectsProduct === "kategori 16" && <Kategori16 />}
           {selectsGroup === "ost og vegetabilske alternativer" &&
@@ -646,11 +671,21 @@ const Calculator = () => {
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 24" && <Kategori24 />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
-            selectsProduct === "kategori 24a" && <Kategori24a />}
+            selectsProduct === "kategori 24 a1" && <Kategori24a1 />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
-            selectsProduct === "kategori 24b" && <Kategori24b />}
+            selectsProduct === "kategori 24 a2" && <Kategori24a2 />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
-            selectsProduct === "kategori 24c" && <Kategori24c />}
+            selectsProduct === "kategori 24 b1" && <Kategori24b1 />}
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24 b2" && <Kategori24b2 />}
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24 b3" && <Kategori24b3 />}
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24 b4" && <Kategori24b4 />}
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24 c1" && <Kategori24c1 />}
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24 c2" && <Kategori24c2 />}
           {selectsGroup === "helt eller delvis vegetabilske produkter" &&
             selectsProduct === "kategori 25" && <Kategori25 />}
           {selectsGroup === "helt eller delvis vegetabilske produkter" &&
