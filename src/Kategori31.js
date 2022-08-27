@@ -21,9 +21,8 @@ const Kategori31 = () => {
   const [energiKj, setEnergiKj] = useState(false);
   const [energiKcal, setEnergiKcal] = useState(false);
   const [fett, setFett] = useState(false);
-
   const [mettede, setMettede] = useState(false);
-
+  const [mettedeNull, setMettedeNull] = useState(false);
   const [karbohydrat, setKarbohydrat] = useState(false);
   const [hvoravSukkerarter, setHvoravSukkerarter] = useState(false);
   const [sukkerarter, setSukkerarter] = useState(false);
@@ -62,6 +61,7 @@ const Kategori31 = () => {
       nutrition.energiKcal !== "" &&
       nutrition.fett !== "" &&
       nutrition.mettede !== "" &&
+      nutrition.mettede <= nutrition.fett / 5 &&
       nutrition.karbohydrat !== "" &&
       nutrition.hvoravSukkerarter !== "" &&
       nutrition.sukkerarter !== "" &&
@@ -78,9 +78,8 @@ const Kategori31 = () => {
       setEnergiKj(false);
       setEnergiKcal(false);
       setFett(false);
-
       setMettede(false);
-
+      setMettedeNull(false);
       setKarbohydrat(false);
       setHvoravSukkerarter(false);
       setSukkerarter(false);
@@ -117,9 +116,15 @@ const Kategori31 = () => {
       }
 
       if (nutrition.mettede === "" || nutrition.mettede < 0) {
-        setMettede(true);
+        setMettedeNull(true);
         setShowResults(false);
         setShowEmptyResult(true);
+      } else {
+        setMettedeNull(false);
+      }
+      if (nutrition.mettede > nutrition.fett / 5) {
+        setMettede(true);
+        setShowResults(false);
       } else {
         setMettede(false);
       }
@@ -315,9 +320,28 @@ const Kategori31 = () => {
                 </td>
               </tr>
 
-              <tr className={mettede ? "alert-box" : null}>
+              <tr
+                className={
+                  mettede
+                    ? "alert-box"
+                    : null || mettedeNull
+                    ? "alert-box"
+                    : null
+                }
+              >
                 <th scope="row" className="table-font">
-                  {fett ? (
+                  {mettede ? (
+                    <Tooltip
+                      title="Produktet innfrir ikke Nøkkelhullet på grunn av mengden mettede fettsyrer. Mengden på mettede fettsyrer må være  høyst 20 % av fettinnholdet / 100 g for å møte kravene for Nøkkelhullsmerking."
+                      placement="right"
+                      arrow
+                    >
+                      <div className="icon">
+                        <FontAwesomeIcon className="alert-icon" icon={faBan} />
+                      </div>
+                    </Tooltip>
+                  ) : null}
+                  {mettedeNull ? (
                     <Tooltip
                       title="Mangler verdi i mettede fettsyrer parameter"
                       placement="right"
@@ -698,6 +722,12 @@ const Kategori31 = () => {
                 <p>Produktet innfrir ikke Nøkkelhullet.</p>
                 {showEmptyResult ? (
                   <p>** Obligatoriske næringsverdier kan ikke være tomme.</p>
+                ) : null}
+                {mettede ? (
+                  <p>
+                    ** Mettede fettsyrer verdien kan være høyst 20% av
+                    fettinholdet.
+                  </p>
                 ) : null}
 
                 {sukkerarter ? (
