@@ -4,7 +4,7 @@ import "./App.css";
 import HeaderCalculator from "./HeaderCalculator";
 
 import Kategori1 from "./Kategori1";
-
+import Kategori2 from "./Kategori2";
 import Kategori3 from "./Kategori3";
 import Kategori4 from "./Kategori4";
 import Kategori5 from "./Kategori5";
@@ -29,16 +29,18 @@ import Kategori17 from "./Kategori17";
 import Kategori18 from "./Kategori18";
 import Kategori19 from "./Kategori19";
 import Kategori20 from "./Kategori20";
+import Kategori21 from "./Kategori21";
+import Kategori22 from "./Kategori22";
 import Kategori22a from "./Kategori22a";
 import Kategori22b from "./Kategori22b";
 import Kategori22c from "./Kategori22c";
 import Kategori22d from "./Kategori22d";
 import Kategori23 from "./Kategori23";
-
+import Kategori24 from "./Kategori24";
 import Kategori24a from "./Kategori24a";
 import Kategori24b from "./Kategori24b";
 import Kategori24c from "./Kategori24c";
-
+import Kategori25 from "./Kategori25";
 import Kategori25a from "./Kategori25a";
 import Kategori25b from "./Kategori25b";
 import Kategori26 from "./Kategori26";
@@ -566,6 +568,8 @@ const Calculator = () => {
         <div>
           {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
             selectsProduct === "kategori 1" && <Kategori1 />}
+          {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
+            selectsProduct === "kategori 2" && <Kategori2 />}
 
           {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
             selectsProduct === "kategori 3" && <Kategori3 />}
@@ -626,6 +630,10 @@ const Calculator = () => {
           {selectsGroup === "matfett og oljer" &&
             selectsProduct === "kategori 20" && <Kategori20 />}
           {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
+            selectsProduct === "kategori 21" && <Kategori21 />}
+          {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
+            selectsProduct === "kategori 22" && <Kategori22 />}
+          {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
             selectsProduct === "kategori 22a" && <Kategori22a />}
           {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
             selectsProduct === "kategori 22b" && <Kategori22b />}
@@ -635,14 +643,16 @@ const Calculator = () => {
             selectsProduct === "kategori 22d" && <Kategori22d />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 23" && <Kategori23 />}
-
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24" && <Kategori24 />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 24a" && <Kategori24a />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 24b" && <Kategori24b />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 24c" && <Kategori24c />}
-
+          {selectsGroup === "helt eller delvis vegetabilske produkter" &&
+            selectsProduct === "kategori 25" && <Kategori25 />}
           {selectsGroup === "helt eller delvis vegetabilske produkter" &&
             selectsProduct === "kategori 25a" && <Kategori25a />}
           {selectsGroup === "helt eller delvis vegetabilske produkter" &&
