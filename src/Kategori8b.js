@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { faBan } from "@fortawesome/free-solid-svg-icons";
