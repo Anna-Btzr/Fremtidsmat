@@ -804,7 +804,7 @@ const Kategori1 = () => {
         {showResults ? (
           <div
             className="container ernæringspåstander-food-result-container"
-            style={{ background: "#ECF6D9" }}
+            style={{ background: "#f2f0b5" }}
           >
             <h5>Ernæringspåstander</h5>
             <div className="row">
@@ -834,7 +834,7 @@ const Kategori1 = () => {
         {showResults ? (
           <div
             className="container helsepåstander-food-result-container"
-            style={{ background: "#ECF6D9" }}
+            style={{ background: "#f2f0b5" }}
           >
             <h5>Helsepåstander</h5>
             <div className="row">

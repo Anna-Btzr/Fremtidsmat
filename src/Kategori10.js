@@ -641,7 +641,7 @@ const Kategori10 = () => {
 
       <div className="col-md-6">
         {showResults ? (
-          <div className="container food-result-container">
+          <div className="container nøkkelhullet-food-result-container">
             <img
               src={keyholeLgog}
               className="keyhole-logo img-fluid"
@@ -688,7 +688,7 @@ const Kategori10 = () => {
           </div>
         ) : null}
         {showResults === false && (
-          <div className="container food-negResult-container">
+          <div className="container nøkkelhullet-food-negResult-container">
             <h5>Nøkkelhullet</h5>
             <div className="row">
               <div className="col-md-10">
@@ -739,13 +739,13 @@ const Kategori10 = () => {
         <div style={{ padding: "5px" }}></div>
         {showResults ? (
           <div
-            className="container food-result-container"
-            style={{ background: "#ECF6D9" }}
+            className="container ernæringspåstander-food-result-container"
+            style={{ background: "#f2f0b5" }}
           >
             <h5>Ernæringspåstander</h5>
             <div className="row">
               <div className="col-md-10">
-                <p>Produktet innfrir EFSA. </p>
+                <p>Under utvikling. </p>
               </div>
               <div className="col-md-2">
                 <FontAwesomeIcon className="info-button" icon={faCircleInfo} />
@@ -754,11 +754,11 @@ const Kategori10 = () => {
           </div>
         ) : null}
         {showResults === false && (
-          <div className="container food-negResult-container">
+          <div className="container ernæringspåstander-food-negResult-container">
             <h5>Ernæringspåstander</h5>
             <div className="row">
               <div className="col-md-10">
-                <p>Produktet innfrir ikke EFSA. </p>
+                <p>Under utvikling. </p>
               </div>
               <div className="col-md-2">
                 <FontAwesomeIcon className="info-button" icon={faCircleInfo} />
@@ -769,13 +769,13 @@ const Kategori10 = () => {
         <div style={{ padding: "5px" }}></div>
         {showResults ? (
           <div
-            className="container food-result-container"
-            style={{ background: "#ECF6D9" }}
+            className="container helsepåstander-food-result-container"
+            style={{ background: "#f2f0b5" }}
           >
             <h5>Helsepåstander</h5>
             <div className="row">
               <div className="col-md-10">
-                <p>Produktet innfrir Helsepåstander. </p>
+                <p>Under utvikling. </p>
               </div>
               <div className="col-md-2">
                 <FontAwesomeIcon className="info-button" icon={faCircleInfo} />
@@ -784,11 +784,11 @@ const Kategori10 = () => {
           </div>
         ) : null}
         {showResults === false && (
-          <div className="container food-negResult-container">
+          <div className="container helsepåstander-food-negResult-container">
             <h5>Helsepåstander</h5>
             <div className="row">
               <div className="col-md-10">
-                <p>Produktet innfrir ikke Helsepåstander. </p>
+                <p>Under utvikling. </p>
               </div>
               <div className="col-md-2">
                 <FontAwesomeIcon className="info-button" icon={faCircleInfo} />
