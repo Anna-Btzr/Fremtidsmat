@@ -45,7 +45,7 @@ import Kategori24b3 from "./Kategori24b3";
 import Kategori24b4 from "./Kategori24b4";
 import Kategori24c1 from "./Kategori24c1";
 import Kategori24c2 from "./Kategori24c2";
-import Kategori25 from "./Kategori25";
+
 import Kategori25a from "./Kategori25a";
 import Kategori25b from "./Kategori25b";
 import Kategori26 from "./Kategori26";
@@ -81,10 +81,12 @@ const Calculator = () => {
       value: "matfett og oljer",
       label: "Matfett og oljer",
     },
+
     {
       value: "fiskerivarer og produkter av fiskerivarer",
       label: "Fiskerivarer og produkter av fiskerivarer",
     },
+
     {
       value: "kjøtt og produkter som inneholder kjøtt",
       label: "Kjøtt og produkter som inneholder kjøtt",
@@ -237,6 +239,7 @@ const Calculator = () => {
         "18. Ferskoster og tilsvarende produkter. Produktene kan være tilsatt smak.",
     },
   ];
+
   const selectMatfett = [
     {
       value: "kategori 19",
@@ -261,23 +264,6 @@ const Calculator = () => {
       label:
         "22. Produkter framstilt av minst 50 % foredlede fiskerivarer. Produktet kan inneholde saus eller lake. Prosentandelen og vilkårene gjelder for den delen av produktet som er beregnet til å spise. Produktet kan være panert, hvis tilberedningen ifølge produsentens anvisning, ikke tilfører produktet fett.",
     },
-    {
-      value: "kategori 22a",
-      label:
-        "22. a) Produkter som verken omfattes som påleggsprodukter, skivet, røkt eller gravet fisk, eller kaviar og andre halvkonserver av fisk.",
-    },
-    {
-      value: "kategori 22b",
-      label: "22. b) Påleggsprodukter, skivet.",
-    },
-    {
-      value: "kategori 22c",
-      label: "22. c) Røkt eller gravet fisk.",
-    },
-    {
-      value: "kategori 22d",
-      label: "22. d) Kaviar og andre halvkonserver av fisk.",
-    },
   ];
 
   const selectKjøtt = [
@@ -297,14 +283,6 @@ const Calculator = () => {
       value: "kategori 25",
       label:
         "25. Helt eller delvis vegetabilske produkter med samme anvendelsesområde som fiske- og kjøttprodukter i gruppene 22 og 24. Produktet skal bestå av minst 50 % korn (100 % fullkorn), grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter), rotfrukter eller ikke-animalsk protein. Produktet skal ikke inneholde kjøtt eller fiskerivarer. Produktet kan inneholde saus eller lake. Prosentandelen og vilkårene gjelder for den delen av produktet som er beregnet til å spise. Produktet kan være panert, hvis tilberedningen ifølge produsentens anvisning, ikke tilfører produktet fett.",
-    },
-    {
-      value: "kategori 25a",
-      label: "25. a) Skivede påleggsprodukter",
-    },
-    {
-      value: "kategori 25b",
-      label: "25. b) For øvrige produkter ",
     },
   ];
 
@@ -349,6 +327,26 @@ const Calculator = () => {
     },
   ];
 
+  const SelectSub22 = [
+    {
+      value: "kategori 22 a",
+      label:
+        "22. a) Produkter som verken omfattes som påleggsprodukter, skivet, røkt eller gravet fisk, eller kaviar og andre halvkonserver av fisk.",
+    },
+    {
+      value: "kategori 22 b",
+      label: "22. b) Påleggsprodukter, skivet.",
+    },
+    {
+      value: "kategori 22 c",
+      label: "22. c) Røkt eller gravet fisk.",
+    },
+    {
+      value: "kategori 22 d",
+      label: "22. d) Kaviar og andre halvkonserver av fisk.",
+    },
+  ];
+
   const SelectSub24 = [
     {
       value: "kategori 24 a",
@@ -364,6 +362,17 @@ const Calculator = () => {
       value: "kategori 24 c",
       label:
         "24. c) Spiseklare eller røkte produkter som inneholder helt eller utskåret kjøtt, og som ikke omfattes av gruppe 24 b). -for påleggsprodukter likevel.",
+    },
+  ];
+
+  const SelectSub25 = [
+    {
+      value: "kategori 25 a",
+      label: "25. a) Skivede påleggsprodukter",
+    },
+    {
+      value: "kategori 25 b",
+      label: "25. b) For øvrige produkter ",
     },
   ];
 
@@ -618,6 +627,20 @@ const Calculator = () => {
             </div>
           )}
 
+          {selectsProduct === "kategori 22" && (
+            <div>
+              <label for="matdivision" class="form-label">
+                <strong>Undermatkategori</strong>
+              </label>
+              <Select
+                placeholder={<div>Velg undermatkategori</div>}
+                className="form-select-md mb-3"
+                onChange={handlerFragment}
+                options={SelectSub22}
+              />
+            </div>
+          )}
+
           {selectsProduct === "kategori 24" && (
             <div>
               <label for="matdivision" class="form-label">
@@ -628,6 +651,20 @@ const Calculator = () => {
                 className="form-select-md mb-3"
                 onChange={handlerFragment}
                 options={SelectSub24}
+              />
+            </div>
+          )}
+
+          {selectsProduct === "kategori 25" && (
+            <div>
+              <label for="matdivision" class="form-label">
+                <strong>Undermatkategori</strong>
+              </label>
+              <Select
+                placeholder={<div>Velg undermatkategori</div>}
+                className="form-select-md mb-3"
+                onChange={handlerFragment}
+                options={SelectSub25}
               />
             </div>
           )}
@@ -742,13 +779,18 @@ const Calculator = () => {
             selectsProduct === "kategori 21" && <Kategori21 />}
 
           {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
-            selectsProduct === "kategori 22a" && <Kategori22a />}
+            selectsProduct === "kategori 22" &&
+            selectsFragment === "kategori 22 a" && <Kategori22a />}
           {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
-            selectsProduct === "kategori 22b" && <Kategori22b />}
+            selectsProduct === "kategori 22" &&
+            selectsFragment === "kategori 22 b" && <Kategori22b />}
           {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
-            selectsProduct === "kategori 22c" && <Kategori22c />}
+            selectsProduct === "kategori 22" &&
+            selectsFragment === "kategori 22 c" && <Kategori22c />}
           {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
-            selectsProduct === "kategori 22d" && <Kategori22d />}
+            selectsProduct === "kategori 22" &&
+            selectsFragment === "kategori 22 d" && <Kategori22d />}
+
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 23" && <Kategori23 />}
 
@@ -786,11 +828,12 @@ const Calculator = () => {
             selectsRation === "kategori 24 c 2" && <Kategori24c2 />}
 
           {selectsGroup === "helt eller delvis vegetabilske produkter" &&
-            selectsProduct === "kategori 25" && <Kategori25 />}
+            selectsProduct === "kategori 25" &&
+            selectsFragment === "kategori 25 a" && <Kategori25a />}
           {selectsGroup === "helt eller delvis vegetabilske produkter" &&
-            selectsProduct === "kategori 25a" && <Kategori25a />}
-          {selectsGroup === "helt eller delvis vegetabilske produkter" &&
-            selectsProduct === "kategori 25b" && <Kategori25b />}
+            selectsProduct === "kategori 25" &&
+            selectsFragment === "kategori 25 b" && <Kategori25b />}
+
           {selectsGroup === "ferdigretter" &&
             selectsProduct === "kategori 26" && <Kategori26 />}
           {selectsGroup === "ferdigretter" &&
