@@ -7,6 +7,7 @@ import Tooltip from "@mui/material/Tooltip";
 import keyholeLgog from "./circle-keyhole-logo.png";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
+//import Select from "react-select";
 
 const Kategori1 = () => {
   const [showResults, setShowResults] = useState("");
@@ -21,8 +22,8 @@ const Kategori1 = () => {
   const onClickClose = () => {
     setInfo(false);
   };
-  const [energiKj, setEnergiKj] = useState(false);
-  const [energiKcal, setEnergiKcal] = useState(false);
+  const [energi, setEnergi] = useState(false);
+
   const [mettede, setMettede] = useState(false);
   const [mettedeNull, setMettedeNull] = useState(false);
   const [fett, setFett] = useState(false);
@@ -39,8 +40,8 @@ const Kategori1 = () => {
   const [kalsium, setKalsium] = useState(false);
 
   const [nutrition, setNutrition] = useState({
-    energiKj: "",
-    energiKcal: "",
+    energi: "",
+
     mettede: "",
     fett: "",
     protein: "",
@@ -62,8 +63,7 @@ const Kategori1 = () => {
 
   const onClick = () => {
     if (
-      nutrition.energiKj !== "" &&
-      nutrition.energiKcal !== "" &&
+      nutrition.energi !== "" &&
       nutrition.mettede !== "" &&
       nutrition.mettede <= 0.6 &&
       nutrition.fett !== "" &&
@@ -82,8 +82,8 @@ const Kategori1 = () => {
       setShowResults(true);
       setShowEmptyResult(false);
 
-      setEnergiKj(false);
-      setEnergiKcal(false);
+      setEnergi(false);
+
       setMettede(false);
       setMettedeNull(false);
       setFett(false);
@@ -99,20 +99,12 @@ const Kategori1 = () => {
       setVitaminB12(false);
       setKalsium(false);
     } else {
-      if (nutrition.energiKj === "" || nutrition.energiKj < 0) {
-        setEnergiKj(true);
+      if (nutrition.energi === "" || nutrition.energi < 0) {
+        setEnergi(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
-        setEnergiKj(false);
-      }
-
-      if (nutrition.energiKcal === "" || nutrition.energiKcal < 0) {
-        setEnergiKcal(true);
-        setShowResults(false);
-        setShowEmptyResult(true);
-      } else {
-        setEnergiKcal(false);
+        setEnergi(false);
       }
 
       if (nutrition.mettede === "" || nutrition.mettede < 0) {
@@ -241,11 +233,11 @@ const Kategori1 = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className={energiKj ? "alert-box" : null}>
+              <tr className={energi ? "alert-box" : null}>
                 <th scope="row" className="table-font">
-                  {energiKj ? (
+                  {energi ? (
                     <Tooltip
-                      title="Mangler verdi i energi (kJ) parameter"
+                      title="Mangler verdi i energi (kJ/Kcal) parameter"
                       placement="right"
                       arrow
                     >
@@ -257,46 +249,15 @@ const Kategori1 = () => {
                       </div>
                     </Tooltip>
                   ) : null}{" "}
-                  Energi (kJ)
+                  Energi (kj/kcal)
                 </th>
                 <td>
                   <input
                     type="number"
                     min="0"
                     step="any"
-                    name="energiKj"
-                    value={nutrition.energiKj}
-                    onChange={changeHandle}
-                    className="form-control"
-                  ></input>
-                </td>
-              </tr>
-
-              <tr className={energiKcal ? "alert-box" : null}>
-                <th scope="row" className="table-font">
-                  {energiKcal ? (
-                    <Tooltip
-                      title="Mangler verdi i energi (kcal) parameter"
-                      placement="right"
-                      arrow
-                    >
-                      <div className="icon">
-                        <FontAwesomeIcon
-                          className="alert-icon"
-                          icon={faCircleExclamation}
-                        />
-                      </div>
-                    </Tooltip>
-                  ) : null}{" "}
-                  Energi (kcal)
-                </th>
-                <td>
-                  <input
-                    type="number"
-                    min="0"
-                    step="any"
-                    name="energiKcal"
-                    value={nutrition.energiKcal}
+                    name="energi"
+                    value={nutrition.energi}
                     onChange={changeHandle}
                     className="form-control"
                   ></input>
