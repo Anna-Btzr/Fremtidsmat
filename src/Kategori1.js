@@ -7,7 +7,7 @@ import Tooltip from "@mui/material/Tooltip";
 import keyholeLgog from "./circle-keyhole-logo.png";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
-//import Select from "react-select";
+import Select from "react-select";
 
 const Kategori1 = () => {
   const [showResults, setShowResults] = useState("");
@@ -216,6 +216,23 @@ const Kategori1 = () => {
     }
   };
 
+  const selectUnit = [
+    {
+      value: "EnergiKJ",
+      label: "(kj)",
+    },
+    {
+      value: "energiKCAL",
+      label: "(kcal)",
+    },
+  ];
+
+  const [selectsPart, setSelectPart] = useState("");
+
+  const handlerPart = (event) => {
+    setSelectPart(event.value);
+  };
+
   return (
     <div className="row">
       <h5>Porsjon (gram) 100</h5>
@@ -249,7 +266,17 @@ const Kategori1 = () => {
                       </div>
                     </Tooltip>
                   ) : null}{" "}
-                  Energi (kj/kcal)
+                  <div>
+                    <label for="energiunit" class="form-label">
+                      Energi
+                    </label>
+                    <Select
+                      placeholder={<div>Velg enhet</div>}
+                      className="form-select-md mb-3"
+                      onChange={handlerPart}
+                      options={selectUnit}
+                    />
+                  </div>
                 </th>
                 <td>
                   <input
