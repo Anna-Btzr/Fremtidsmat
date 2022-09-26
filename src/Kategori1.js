@@ -72,7 +72,6 @@ const Kategori1 = () => {
       setShowEmptyResult(false);
 
       setEnergi(false);
-
       setMettede(false);
       setMettedeNull(false);
       setFett(false);
@@ -613,13 +612,14 @@ const Kategori1 = () => {
                 {showEmptyResult ? (
                   <p>** Obligatoriske næringsverdier kan ikke være tomme.</p>
                 ) : null}
-                {fett ? <p>** Fett verdien kan være høyst 3 g/100 g.</p> : null}
 
                 {mettede ? (
                   <p>
                     ** Mettede fettsyrer verdien kan være høyst 0.6 g/100 g.
                   </p>
                 ) : null}
+
+                {fett ? <p>** Fett verdien kan være høyst 3 g/100 g.</p> : null}
 
                 {karbohydrat ? (
                   <p>
