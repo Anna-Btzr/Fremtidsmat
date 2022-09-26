@@ -266,16 +266,20 @@ const Kategori1 = () => {
                       </div>
                     </Tooltip>
                   ) : null}{" "}
-                  <div>
-                    <label for="energiunit" class="form-label">
-                      Energi
-                    </label>
-                    <Select
-                      placeholder={<div>Velg enhet</div>}
-                      className="form-select-md mb-3"
-                      onChange={handlerPart}
-                      options={selectUnit}
-                    />
+                  <div className="row">
+                    <div className="col-md-3">
+                      <label for="energiunit" class="form-label">
+                        Energi
+                      </label>
+                    </div>
+                    <div className="col-md-6">
+                      <Select
+                        placeholder={<div>Velg enhet</div>}
+                        className="form-select-md mb-3"
+                        onChange={handlerPart}
+                        options={selectUnit}
+                      />
+                    </div>
                   </div>
                 </th>
                 <td>
