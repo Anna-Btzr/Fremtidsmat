@@ -9,7 +9,7 @@ import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import Select from "react-select";
 
-const Kategori12a = () => {
+const Melk12a = () => {
   const [showResults, setShowResults] = useState("");
   const [showEmptyResult, setShowEmptyResult] = useState("");
 
@@ -634,4 +634,4 @@ const Kategori12a = () => {
   );
 };
 
-export default Kategori12a;
+export default Melk12a;
