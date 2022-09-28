@@ -615,16 +615,15 @@ const Kategori32 = () => {
 
                 {mettede ? (
                   <p>
-                    ** Mettede fettsyrer verdien kan være høyst 1.65 g/100 g.
+                    ** Mettede fettsyrer verdien kan være høyst 33 % av
+                    fettinnholdet /100 g.
                   </p>
                 ) : null}
 
                 {fett ? <p>** Fett verdien kan være høyst 5 g/100 g.</p> : null}
 
                 {karbohydrat ? (
-                  <p>
-                    ** Tilsatte sukkerarter verdien kan være høyst 5 g/100 g.
-                  </p>
+                  <p>** Sukkerarter verdien kan være høyst 5 g/100 g.</p>
                 ) : null}
 
                 {salt ? (

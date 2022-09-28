@@ -585,13 +585,14 @@ const Kategori22d = () => {
                 ) : null}
 
                 {fett ? (
-                  <p>** Fett verdien kan være høyst 10 g/100 g.</p>
+                  <p>
+                    ** Annet fett enn fiskefett verdien kan være høyst 10 g/100
+                    g.
+                  </p>
                 ) : null}
 
                 {karbohydrat ? (
-                  <p>
-                    ** Tilsatte sukkerarter verdien kan være høyst 5 g/100 g.
-                  </p>
+                  <p>** Sukkerarter verdien kan være høyst 5 g/100 g.</p>
                 ) : null}
                 {salt ? <p>** Salt verdien kan være høyst 3 g/100 g.</p> : null}
               </div>

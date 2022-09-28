@@ -584,7 +584,8 @@ const Kategori19 = () => {
 
                 {mettede ? (
                   <p>
-                    ** Mettede fettsyrer verdien kan være høyst 26.4 g/100 g.
+                    ** Mettede fettsyrer verdien kan være høyst 33 % av
+                    fettinnholdet /100 g.
                   </p>
                 ) : null}
 

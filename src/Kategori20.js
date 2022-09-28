@@ -557,7 +557,7 @@ const Kategori20 = () => {
                 {mettede ? (
                   <p>
                     ** Mettede fettsyrer verdien kan være høyst 20% av
-                    fettinholdet.
+                    fettinholdet /100 g.
                   </p>
                 ) : null}
                 {salt ? <p>** Salt verdien kan være høyst 1 g/100 g.</p> : null}

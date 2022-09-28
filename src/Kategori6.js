@@ -652,10 +652,11 @@ const Kategori6 = () => {
                   </p>
                 ) : null}
 
-                {salt ? <p>** Salt verdien kan være høyst 1 g/100 g.</p> : null}
                 {kostfiber ? (
                   <p>** Kostfiber verdien kan være minst 6 g/100 g.</p>
                 ) : null}
+
+                {salt ? <p>** Salt verdien kan være høyst 1 g/100 g.</p> : null}
               </div>
               <div className="col-md-2">
                 <FontAwesomeIcon

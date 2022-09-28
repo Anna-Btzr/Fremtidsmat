@@ -614,12 +614,12 @@ const Kategori1 = () => {
                 ) : null}
 
                 {mettede ? (
-                  <p>
-                    ** Mettede fettsyrer verdien kan være høyst 0.6 g/100 g.
-                  </p>
+                  <p>** Tilsatt fett kan høyst inneholde 20 % mettet fett.</p>
                 ) : null}
 
-                {fett ? <p>** Fett verdien kan være høyst 3 g/100 g.</p> : null}
+                {fett ? (
+                  <p>** Tilsatt fett verdien kan være høyst 3 g/100 g.</p>
+                ) : null}
 
                 {karbohydrat ? (
                   <p>

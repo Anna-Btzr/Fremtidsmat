@@ -589,9 +589,7 @@ const Kategori24a2 = () => {
                 ) : null}
 
                 {karbohydrat ? (
-                  <p>
-                    ** Tilsatte sukkerarter verdien kan være høyst 3 g/100 g.
-                  </p>
+                  <p>** Sukkerarter verdien kan være høyst 3 g/100 g.</p>
                 ) : null}
                 {salt ? (
                   <p>** Salt verdien kan være høyst 0.5 g/100 g.</p>

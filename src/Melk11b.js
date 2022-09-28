@@ -615,7 +615,8 @@ const Melk11b = () => {
 
                 {mettede ? (
                   <p>
-                    ** Mettede fettsyrer verdien kan være høyst 0.495 g/100 g.
+                    ** Mettede fettsyrer verdien kan være høyst 33 % av
+                    fettinnholdet /100 g.
                   </p>
                 ) : null}
 
@@ -624,9 +625,7 @@ const Melk11b = () => {
                 ) : null}
 
                 {karbohydrat ? (
-                  <p>
-                    ** Tilsatte sukkerarter verdien kan være høyst 5 g/100 g.
-                  </p>
+                  <p>** Sukkerarter verdien kan være høyst 5 g/100 g.</p>
                 ) : null}
 
                 {salt ? (
