@@ -473,7 +473,19 @@ const Calculator = () => {
             options={selectOption}
           />
 
-          {selectsGroup === "grønnsaker, frukt, bær og nøtter" && (
+          {selectsGroup === "grønnsaker, frukt, bær og nøtter" ? (
+            <div>
+              <label for="mat" class="form-label">
+                <strong>Matkategori</strong>
+              </label>
+              <Select
+                placeholder={<div>Velg mat</div>}
+                className="form-select-md mb-3"
+                onChange={handlerProduct}
+                options={selectGrønnsaker}
+              />
+            </div>
+          ) : (
             <div>
               <label for="mat" class="form-label">
                 <strong>Matkategori</strong>
@@ -722,6 +734,8 @@ const Calculator = () => {
         </div>
 
         <div>
+          {selectsGroup !== "grønnsaker, frukt, bær og nøtter" &&
+            selectsProduct !== "kategori 1" && <Kategori1 />}
           {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
             selectsProduct === "kategori 1" && <Kategori1 />}
           {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
