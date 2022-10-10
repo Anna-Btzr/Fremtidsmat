@@ -389,19 +389,24 @@ const Calculator = () => {
 
   const SelectSub24 = [
     {
+      value: "",
+    },
+
+    {
       value: "kategori 24 a",
       label:
-        "24. a) Rå produkter av hele eller utskårne kjøttstykker som er overflatemarinert eller krydret. -for stikksaltede produkter likevel. ",
+        "24. a) Rå produkter av hele eller utskårne kjøttstykker som er overflatemarinert eller krydret. - for øvrige produkter. ",
     },
     {
       value: "kategori 24 b",
       label:
-        "24. b) Rå eller spiseklare produkter som inneholder kvernet kjøtt. -for pølser likevel. -for påleggspølser likevel. -for karbonadedeig likevel",
+        "24. b) Rå eller spiseklare produkter som inneholder kvernet kjøtt. -for øvrige produkter.",
     },
+
     {
       value: "kategori 24 c",
       label:
-        "24. c) Spiseklare eller røkte produkter som inneholder helt eller utskåret kjøtt, og som ikke omfattes av gruppe 24 b). -for påleggsprodukter likevel.",
+        "24. c) Spiseklare eller røkte produkter som inneholder helt eller utskåret kjøtt, og som ikke omfattes av gruppe 24 b). -for øvrige produkter.",
     },
   ];
 
@@ -421,21 +426,21 @@ const Calculator = () => {
 
   const SelectFragment24a = [
     {
-      value: "kategori 24 a 1",
-      label:
-        "24. a) Rå produkter av hele eller utskårne kjøttstykker som er overflatemarinert eller krydret.",
+      value: "",
     },
     {
       value: "kategori 24 a 2",
       label: "- for stikksaltede produkter likevel",
     },
+    {
+      value: "kategori 24 a 1",
+      label: "- for øvrige produkter",
+    },
   ];
 
   const SelectFragment24b = [
     {
-      value: "kategori 24 b 1",
-      label:
-        "24. b) Rå eller spiseklare produkter som inneholder kvernet kjøtt.",
+      value: "",
     },
     {
       value: "kategori 24 b 2",
@@ -449,17 +454,23 @@ const Calculator = () => {
       value: "kategori 24 b 4",
       label: "- for karbonadedeig likevel",
     },
+    {
+      value: "kategori 24 b 1",
+      label: "-for øvrige produkter",
+    },
   ];
 
   const SelectFragment24c = [
     {
-      value: "kategori 24 c 1",
-      label:
-        "24. c) Spiseklare eller røkte produkter som inneholder helt eller utskåret kjøtt, og som ikke omfattes av gruppe 24 b).",
+      value: "",
     },
     {
       value: "kategori 24 c 2",
       label: "- for påleggsprodukter likevel",
+    },
+    {
+      value: "kategori 24 c 1",
+      label: "- for øvrige produkter.",
     },
   ];
 
@@ -866,12 +877,24 @@ const Calculator = () => {
 
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 24" &&
+            selectsFragment === "" && <Kategori0 />}
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24" &&
+            selectsFragment === "kategori 24 a" &&
+            selectsRation === "" && <Kategori0 />}
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24" &&
             selectsFragment === "kategori 24 a" &&
             selectsRation === "kategori 24 a 1" && <Kategori24a1 />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 24" &&
             selectsFragment === "kategori 24 a" &&
             selectsRation === "kategori 24 a 2" && <Kategori24a2 />}
+
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24" &&
+            selectsFragment === "kategori 24 b" &&
+            selectsRation === "" && <Kategori0 />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 24" &&
             selectsFragment === "kategori 24 b" &&
@@ -888,6 +911,11 @@ const Calculator = () => {
             selectsProduct === "kategori 24" &&
             selectsFragment === "kategori 24 b" &&
             selectsRation === "kategori 24 b 4" && <Kategori24b4 />}
+
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "kategori 24" &&
+            selectsFragment === "kategori 24 c" &&
+            selectsRation === "" && <Kategori0 />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 24" &&
             selectsFragment === "kategori 24 c" &&
