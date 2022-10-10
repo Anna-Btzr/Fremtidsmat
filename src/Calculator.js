@@ -3,6 +3,7 @@ import { useState } from "react";
 import Select from "react-select";
 import "./App.css";
 import HeaderCalculator from "./HeaderCalculator";
+import Kategori0 from "./Kategori0";
 
 import Kategori1 from "./Kategori1";
 import Kategori2 from "./Kategori2";
@@ -60,6 +61,10 @@ const Calculator = () => {
   //matvaregruppe selector
   const selectOption = [
     {
+      value: "",
+    },
+
+    {
       value: "grønnsaker, frukt, bær og nøtter",
       label: "Grønnsaker, frukt, bær og nøtter",
     },
@@ -106,7 +111,12 @@ const Calculator = () => {
   ];
 
   //matkategori selector
+
   const selectGrønnsaker = [
+    {
+      value: "",
+    },
+
     {
       value: "kategori 1",
       label:
@@ -126,6 +136,9 @@ const Calculator = () => {
 
   const selectMel = [
     {
+      value: "",
+    },
+    {
       value: "kategori 4",
       label:
         "4. Mel, gryn og flak av korn som inneholder 100 % fullkorn av korndelens tørrstoffinnhold. Kli og kim er unntatt fra kravet til fullkorn. Fullkornet kan helt eller delvis erstattes med grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) og rotfrukter for samme anvendelsesområde.",
@@ -143,6 +156,9 @@ const Calculator = () => {
   ];
 
   const selectGrøt = [
+    {
+      value: "",
+    },
     {
       value: "kategori 7",
       label:
@@ -170,6 +186,9 @@ const Calculator = () => {
     },
   ];
   const selectSyrnede = [
+    {
+      value: "",
+    },
     {
       value: "melk 11a",
       label:
@@ -224,6 +243,9 @@ const Calculator = () => {
 
   const selectOst = [
     {
+      value: "",
+    },
+    {
       value: "kategori 16",
       label:
         " 16. (Ikke vegetabilske) Oster, unntatt ferskoster og tilsvarende produkter. Produktene kan være tilsatt smak.",
@@ -242,6 +264,9 @@ const Calculator = () => {
 
   const selectMatfett = [
     {
+      value: "",
+    },
+    {
       value: "kategori 19",
       label:
         "19. Matfett og matfettblandinger. Produktene kan være tilsatt smak.",
@@ -254,6 +279,9 @@ const Calculator = () => {
   ];
 
   const selectFiskerivarer = [
+    {
+      value: "",
+    },
     {
       value: "kategori 21",
       label:
@@ -268,6 +296,9 @@ const Calculator = () => {
 
   const selectKjøtt = [
     {
+      value: "",
+    },
+    {
       value: "kategori 23",
       label: "23. Kjøtt som er uforedlet.",
     },
@@ -280,6 +311,9 @@ const Calculator = () => {
 
   const selectVegetabliske = [
     {
+      value: "",
+    },
+    {
       value: "kategori 25",
       label:
         "25. Helt eller delvis vegetabilske produkter med samme anvendelsesområde som fiske- og kjøttprodukter i gruppene 22 og 24. Produktet skal bestå av minst 50 % korn (100 % fullkorn), grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter), rotfrukter eller ikke-animalsk protein. Produktet skal ikke inneholde kjøtt eller fiskerivarer. Produktet kan inneholde saus eller lake. Prosentandelen og vilkårene gjelder for den delen av produktet som er beregnet til å spise. Produktet kan være panert, hvis tilberedningen ifølge produsentens anvisning, ikke tilfører produktet fett.",
@@ -287,6 +321,9 @@ const Calculator = () => {
   ];
 
   const selectFerdig = [
+    {
+      value: "",
+    },
     {
       value: "kategori 26",
       label:
@@ -315,6 +352,9 @@ const Calculator = () => {
   ];
 
   const selectDressinger = [
+    {
+      value: "",
+    },
     {
       value: "kategori 31",
       label:
@@ -366,6 +406,9 @@ const Calculator = () => {
   ];
 
   const SelectSub25 = [
+    {
+      value: "",
+    },
     {
       value: "kategori 25 a",
       label: "25. a) Skivede påleggsprodukter",
@@ -473,19 +516,7 @@ const Calculator = () => {
             options={selectOption}
           />
 
-          {selectsGroup === "grønnsaker, frukt, bær og nøtter" ? (
-            <div>
-              <label for="mat" class="form-label">
-                <strong>Matkategori</strong>
-              </label>
-              <Select
-                placeholder={<div>Velg mat</div>}
-                className="form-select-md mb-3"
-                onChange={handlerProduct}
-                options={selectGrønnsaker}
-              />
-            </div>
-          ) : (
+          {selectsGroup === "grønnsaker, frukt, bær og nøtter" && (
             <div>
               <label for="mat" class="form-label">
                 <strong>Matkategori</strong>
@@ -734,8 +765,9 @@ const Calculator = () => {
         </div>
 
         <div>
-          {selectsGroup !== "grønnsaker, frukt, bær og nøtter" &&
-            selectsProduct !== "kategori 1" && <Kategori1 />}
+          {selectsGroup === "" && <Kategori0 />}
+          {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
+            selectsProduct === "" && <Kategori0 />}
           {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
             selectsProduct === "kategori 1" && <Kategori1 />}
           {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
@@ -743,12 +775,20 @@ const Calculator = () => {
 
           {selectsGroup === "grønnsaker, frukt, bær og nøtter" &&
             selectsProduct === "kategori 3" && <Kategori3 />}
+
+          {selectsGroup === "mel, gryn og ris" && selectsProduct === "" && (
+            <Kategori0 />
+          )}
           {selectsGroup === "mel, gryn og ris" &&
             selectsProduct === "kategori 4" && <Kategori4 />}
           {selectsGroup === "mel, gryn og ris" &&
             selectsProduct === "kategori 5" && <Kategori5 />}
           {selectsGroup === "mel, gryn og ris" &&
             selectsProduct === "kategori 6" && <Kategori6 />}
+
+          {selectsGroup === "grøt, brød og pasta" && selectsProduct === "" && (
+            <Kategori0 />
+          )}
           {selectsGroup === "grøt, brød og pasta" &&
             selectsProduct === "kategori 7" && <Kategori7 />}
           {selectsGroup === "grøt, brød og pasta" &&
@@ -759,6 +799,10 @@ const Calculator = () => {
             selectsProduct === "kategori 9" && <Kategori9 />}
           {selectsGroup === "grøt, brød og pasta" &&
             selectsProduct === "kategori 10" && <Kategori10 />}
+
+          {selectsGroup === "melk kategori" && selectsProduct === "" && (
+            <Kategori0 />
+          )}
           {selectsGroup === "melk kategori" &&
             selectsProduct === "melk 11a" && <Melk11a />}
           {selectsGroup === "melk kategori" &&
@@ -779,16 +823,26 @@ const Calculator = () => {
             selectsProduct === "melk 15a" && <Melk15a />}
           {selectsGroup === "melk kategori" &&
             selectsProduct === "melk 15b" && <Melk15b />}
+
+          {selectsGroup === "ost og vegetabilske alternativer" &&
+            selectsProduct === "" && <Kategori0 />}
           {selectsGroup === "ost og vegetabilske alternativer" &&
             selectsProduct === "kategori 16" && <Kategori16 />}
           {selectsGroup === "ost og vegetabilske alternativer" &&
             selectsProduct === "kategori 17" && <Kategori17 />}
           {selectsGroup === "ost og vegetabilske alternativer" &&
             selectsProduct === "kategori 18" && <Kategori18 />}
+
+          {selectsGroup === "matfett og oljer" && selectsProduct === "" && (
+            <Kategori0 />
+          )}
           {selectsGroup === "matfett og oljer" &&
             selectsProduct === "kategori 19" && <Kategori19 />}
           {selectsGroup === "matfett og oljer" &&
             selectsProduct === "kategori 20" && <Kategori20 />}
+
+          {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
+            selectsProduct === "" && <Kategori0 />}
           {selectsGroup === "fiskerivarer og produkter av fiskerivarer" &&
             selectsProduct === "kategori 21" && <Kategori21 />}
 
@@ -805,6 +859,8 @@ const Calculator = () => {
             selectsProduct === "kategori 22" &&
             selectsFragment === "kategori 22 d" && <Kategori22d />}
 
+          {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
+            selectsProduct === "" && <Kategori0 />}
           {selectsGroup === "kjøtt og produkter som inneholder kjøtt" &&
             selectsProduct === "kategori 23" && <Kategori23 />}
 
@@ -842,12 +898,20 @@ const Calculator = () => {
             selectsRation === "kategori 24 c 2" && <Kategori24c2 />}
 
           {selectsGroup === "helt eller delvis vegetabilske produkter" &&
+            selectsProduct === "" && <Kategori0 />}
+          {selectsGroup === "helt eller delvis vegetabilske produkter" &&
+            selectsProduct === "kategori 25" &&
+            selectsFragment === "" && <Kategori0 />}
+          {selectsGroup === "helt eller delvis vegetabilske produkter" &&
             selectsProduct === "kategori 25" &&
             selectsFragment === "kategori 25 a" && <Kategori25a />}
           {selectsGroup === "helt eller delvis vegetabilske produkter" &&
             selectsProduct === "kategori 25" &&
             selectsFragment === "kategori 25 b" && <Kategori25b />}
 
+          {selectsGroup === "ferdigretter" && selectsProduct === "" && (
+            <Kategori0 />
+          )}
           {selectsGroup === "ferdigretter" &&
             selectsProduct === "kategori 26" && <Kategori26 />}
           {selectsGroup === "ferdigretter" &&
@@ -858,6 +922,10 @@ const Calculator = () => {
             selectsProduct === "kategori 29" && <Kategori29 />}
           {selectsGroup === "ferdigretter" &&
             selectsProduct === "kategori 30" && <Kategori30 />}
+
+          {selectsGroup === "dressinger og sauser" && selectsProduct === "" && (
+            <Kategori0 />
+          )}
           {selectsGroup === "dressinger og sauser" &&
             selectsProduct === "kategori 31" && <Kategori31 />}
           {selectsGroup === "dressinger og sauser" &&
