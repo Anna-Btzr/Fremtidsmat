@@ -445,6 +445,7 @@ const Calculator = () => {
     {
       value: "",
     },
+
     {
       value: "kategori 24 b 2",
       label: "- for pølser likevel",

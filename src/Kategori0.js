@@ -14,16 +14,18 @@ const Kategori0 = () => {
   const [showEmptyResult, setShowEmptyResult] = useState("");
 
   const [info, setInfo] = useState("");
+
   const onClickInfo = () => {
     setInfo(true);
   };
+
   const onClickClose = () => {
     setInfo(false);
   };
 
-  const [energi, setEnergi] = useState(false);
+  const [energikj, setEnergikj] = useState(false);
+  const [energikcal, setEnergikcal] = useState(false);
   const [mettede, setMettede] = useState(false);
-
   const [fett, setFett] = useState(false);
   const [protein, setProtein] = useState(false);
   const [karbohydrat, setKarbohydrat] = useState(false);
@@ -32,7 +34,8 @@ const Kategori0 = () => {
   const [salt, setSalt] = useState(false);
 
   const [nutrition, setNutrition] = useState({
-    energi: "",
+    energikj: "",
+    energikcal: "",
     mettede: "",
     fett: "",
     protein: "",
@@ -41,7 +44,9 @@ const Kategori0 = () => {
     kostfiber: "",
     salt: "",
   });
+
   const changeHandle = (event) => {
+    console.log("changeHandle ===", event.target);
     setNutrition({
       ...nutrition,
       [event.target.name]: [event.target.value],
@@ -50,7 +55,8 @@ const Kategori0 = () => {
 
   const onClick = () => {
     if (
-      nutrition.energi !== "" &&
+      nutrition.energikj !== "" &&
+      nutrition.energikcal !== "" &&
       nutrition.mettede !== "" &&
       nutrition.fett !== "" &&
       nutrition.protein !== "" &&
@@ -62,7 +68,8 @@ const Kategori0 = () => {
       setShowResults(true);
       setShowEmptyResult(false);
 
-      setEnergi(false);
+      setEnergikj(false);
+      setEnergikcal(false);
       setMettede(false);
 
       setFett(false);
@@ -72,12 +79,20 @@ const Kategori0 = () => {
       setKostfiber(false);
       setSalt(false);
     } else {
-      if (nutrition.energi === "" || nutrition.energi < 0) {
-        setEnergi(true);
+      if (nutrition.energikj === "" || nutrition.energikj < 0) {
+        setEnergikj(true);
         setShowResults(false);
         setShowEmptyResult(true);
       } else {
-        setEnergi(false);
+        setEnergikj(false);
+      }
+
+      if (nutrition.energikcal === "" || nutrition.energikcal < 0) {
+        setEnergikcal(true);
+        setShowResults(false);
+        setShowEmptyResult(true);
+      } else {
+        setEnergikcal(false);
       }
 
       if (nutrition.mettede === "" || nutrition.mettede < 0) {
@@ -143,11 +158,11 @@ const Kategori0 = () => {
 
   const selectUnit = [
     {
-      value: "EnergiKJ",
+      value: "energikj",
       label: "(kj)",
     },
     {
-      value: "energiKCAL",
+      value: "energikcal",
       label: "(kcal)",
     },
   ];
@@ -155,8 +170,10 @@ const Kategori0 = () => {
   const [selectsPart, setSelectPart] = useState("");
 
   const handlerPart = (event) => {
+    console.log("handlerPart ===", event, nutrition);
     setSelectPart(event.value);
   };
+
   return (
     <div className="row">
       <h5>Porsjon (gram) 100</h5>
@@ -174,9 +191,9 @@ const Kategori0 = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className={energi ? "alert-box" : null}>
+              <tr className={(energikj, energikcal ? "alert-box" : null)}>
                 <th scope="row" className="table-font">
-                  {energi ? (
+                  {energikj && energikcal ? (
                     <Tooltip
                       title="Mangler verdi i energi (kJ/Kcal) parameter"
                       placement="right"
@@ -200,8 +217,8 @@ const Kategori0 = () => {
                       <Select
                         placeholder={<div>Velg enhet</div>}
                         className="form-select-md mb-3"
-                        onChange={handlerPart}
                         options={selectUnit}
+                        onChange={(e) => handlerPart(e)}
                       />
                     </div>
                   </div>
@@ -211,8 +228,12 @@ const Kategori0 = () => {
                     type="number"
                     min="0"
                     step="any"
-                    name="energi"
-                    value={nutrition.energi}
+                    name="energikj"
+                    // value={
+                    //   selectsPart === "EnergiKJ"
+                    //     ? nutrition.energikj
+                    //     : nutrition.energikcal
+                    // }
                     onChange={changeHandle}
                     className="form-control"
                   ></input>
