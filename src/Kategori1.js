@@ -50,17 +50,18 @@ const Kategori1 = () => {
   });
 
   const changeHandle = (event) => {
-    console.log("changeHandle ===", event.target);
+    console.log("changeHandle ===", event.target, event.target.value);
     setNutrition({
       ...nutrition,
-      [event.target.name]: [event.target.value],
+      [event.target.name]: event.target.value,
     });
   };
 
   const onClick = () => {
+    console.log("onclick ===", selectsPart, nutrition);
     if (
-      nutrition.energikj !== "" &&
-      nutrition.energikcal !== "" &&
+      // nutrition.energikj !== "" &&
+      // nutrition.energikcal !== "" &&
       nutrition.mettede !== "" &&
       nutrition.mettede <= 0.6 &&
       nutrition.fett !== "" &&
@@ -75,8 +76,14 @@ const Kategori1 = () => {
     ) {
       setShowResults(true);
       setShowEmptyResult(false);
-      setEnergikj(false);
-      setEnergikcal(false);
+
+      if (selectsPart === "energikj" && nutrition.energikj !== "") {
+        setEnergikj(false);
+      }
+
+      if (selectsPart === "energikcal" && nutrition.energikcal !== "") {
+        setEnergikcal(false);
+      }
 
       setMettede(false);
       setMettedeNull(false);
@@ -90,20 +97,28 @@ const Kategori1 = () => {
       setSalt(false);
       setSaltNull(false);
     } else {
-      if (nutrition.energikj === "" || nutrition.energikj < 0) {
-        setEnergikj(true);
-        setShowResults(false);
-        setShowEmptyResult(true);
-      } else {
-        setEnergikj(false);
+      if (selectsPart === "energikj") {
+        console.log("energikj ===", selectsPart, nutrition.energikj);
+        if (nutrition.energikj === "" || nutrition.energikj < 0) {
+          console.log("energikj ===", selectsPart, nutrition.energikj);
+          setEnergikj(true);
+          setShowResults(false);
+          setShowEmptyResult(true);
+        } else {
+          setEnergikj(false);
+        }
       }
 
-      if (nutrition.energikcal === "" || nutrition.energikcal < 0) {
-        setEnergikcal(true);
-        setShowResults(false);
-        setShowEmptyResult(true);
-      } else {
-        setEnergikcal(false);
+      if (selectsPart === "energikcal") {
+        console.log("energikcal ===", selectsPart, nutrition.energikcal);
+        if (nutrition.energikcal === "" || nutrition.energikcal < 0) {
+          console.log("energikcal ===", selectsPart, nutrition.energikcal);
+          setEnergikcal(true);
+          setShowResults(false);
+          setShowEmptyResult(true);
+        } else {
+          setEnergikcal(false);
+        }
       }
 
       if (nutrition.mettede === "" || nutrition.mettede < 0) {
@@ -205,8 +220,13 @@ const Kategori1 = () => {
   const [selectsPart, setSelectPart] = useState("");
 
   const handlerPart = (event) => {
-    console.log("handlerPart ===", event, nutrition);
+    const inputVal = document.getElementsByName(event.value);
+    console.log("handlerPart ===", event, nutrition, inputVal);
     setSelectPart(event.value);
+    // setNutrition({
+    //   ...nutrition,
+    //   [event.value]: inputVal && inputVal.length ? inputVal[0].value : 0,
+    // });
   };
 
   return (
@@ -263,7 +283,7 @@ const Kategori1 = () => {
                     type="number"
                     min="0"
                     step="any"
-                    name="energi"
+                    name={selectsPart}
                     // value={
                     //   selectsPart === "EnergiKJ"
                     //     ? nutrition.energikj
