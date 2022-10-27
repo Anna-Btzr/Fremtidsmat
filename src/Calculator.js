@@ -63,7 +63,6 @@ const Calculator = () => {
     {
       value: "",
     },
-
     {
       value: "grønnsaker, frukt, bær og nøtter",
       label: "Grønnsaker, frukt, bær og nøtter",
@@ -77,7 +76,6 @@ const Calculator = () => {
       value: "melk kategori",
       label: "Melk, syrnede melkeprodukter og vegetabilske alternativer",
     },
-
     {
       value: "ost og vegetabilske alternativer",
       label: "Ost og vegetabilske alternativer",
@@ -86,12 +84,10 @@ const Calculator = () => {
       value: "matfett og oljer",
       label: "Matfett og oljer",
     },
-
     {
       value: "fiskerivarer og produkter av fiskerivarer",
       label: "Fiskerivarer og produkter av fiskerivarer",
     },
-
     {
       value: "kjøtt og produkter som inneholder kjøtt",
       label: "Kjøtt og produkter som inneholder kjøtt",
@@ -116,7 +112,6 @@ const Calculator = () => {
     {
       value: "",
     },
-
     {
       value: "kategori 1",
       label:
