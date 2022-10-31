@@ -107,9 +107,6 @@ const Calculator = () => {
 
   const selectGrønnsaker = [
     {
-      value: "",
-    },
-    {
       value: "kategori 1",
       label:
         "1. Grønnsaker, rotfrukter, belgvekster (unntatt peanøtter) og poteter. Produktene kan være foredlet. Uforedlede krydderurter omfattes også.",
@@ -128,9 +125,6 @@ const Calculator = () => {
 
   const selectMel = [
     {
-      value: "",
-    },
-    {
       value: "kategori 4",
       label:
         "4. Mel, gryn og flak av korn som inneholder 100 % fullkorn av korndelens tørrstoffinnhold. Kli og kim er unntatt fra kravet til fullkorn. Fullkornet kan helt eller delvis erstattes med grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter) og rotfrukter for samme anvendelsesområde.",
@@ -148,9 +142,6 @@ const Calculator = () => {
   ];
 
   const selectGrøt = [
-    {
-      value: "",
-    },
     {
       value: "kategori 7",
       label:
@@ -178,9 +169,6 @@ const Calculator = () => {
     },
   ];
   const selectSyrnede = [
-    {
-      value: "",
-    },
     {
       value: "melk 11a",
       label:
@@ -235,9 +223,6 @@ const Calculator = () => {
 
   const selectOst = [
     {
-      value: "",
-    },
-    {
       value: "kategori 16",
       label:
         " 16. (Ikke vegetabilske) Oster, unntatt ferskoster og tilsvarende produkter. Produktene kan være tilsatt smak.",
@@ -256,9 +241,6 @@ const Calculator = () => {
 
   const selectMatfett = [
     {
-      value: "",
-    },
-    {
       value: "kategori 19",
       label:
         "19. Matfett og matfettblandinger. Produktene kan være tilsatt smak.",
@@ -271,9 +253,6 @@ const Calculator = () => {
   ];
 
   const selectFiskerivarer = [
-    {
-      value: "",
-    },
     {
       value: "kategori 21",
       label:
@@ -288,9 +267,6 @@ const Calculator = () => {
 
   const selectKjøtt = [
     {
-      value: "",
-    },
-    {
       value: "kategori 23",
       label: "23. Kjøtt som er uforedlet.",
     },
@@ -303,9 +279,6 @@ const Calculator = () => {
 
   const selectVegetabliske = [
     {
-      value: "",
-    },
-    {
       value: "kategori 25",
       label:
         "25. Helt eller delvis vegetabilske produkter med samme anvendelsesområde som fiske- og kjøttprodukter i gruppene 22 og 24. Produktet skal bestå av minst 50 % korn (100 % fullkorn), grønnsaker (unntatt poteter), belgvekster (unntatt peanøtter), rotfrukter eller ikke-animalsk protein. Produktet skal ikke inneholde kjøtt eller fiskerivarer. Produktet kan inneholde saus eller lake. Prosentandelen og vilkårene gjelder for den delen av produktet som er beregnet til å spise. Produktet kan være panert, hvis tilberedningen ifølge produsentens anvisning, ikke tilfører produktet fett.",
@@ -313,9 +286,6 @@ const Calculator = () => {
   ];
 
   const selectFerdig = [
-    {
-      value: "",
-    },
     {
       value: "kategori 26",
       label:
@@ -345,9 +315,6 @@ const Calculator = () => {
 
   const selectDressinger = [
     {
-      value: "",
-    },
-    {
       value: "kategori 31",
       label:
         "31. Dressinger av olje og eddik. Produktene kan være tilsatt smak.",
@@ -360,9 +327,6 @@ const Calculator = () => {
   ];
 
   const SelectSub22 = [
-    {
-      value: "",
-    },
     {
       value: "kategori 22 a",
       label:
@@ -384,10 +348,6 @@ const Calculator = () => {
 
   const SelectSub24 = [
     {
-      value: "",
-    },
-
-    {
       value: "kategori 24 a",
       label:
         "24. a) Rå produkter av hele eller utskårne kjøttstykker som er overflatemarinert eller krydret.",
@@ -407,9 +367,6 @@ const Calculator = () => {
 
   const SelectSub25 = [
     {
-      value: "",
-    },
-    {
       value: "kategori 25 a",
       label: "25. a) Skivede påleggsprodukter",
     },
@@ -421,9 +378,6 @@ const Calculator = () => {
 
   const SelectFragment24a = [
     {
-      value: "",
-    },
-    {
       value: "kategori 24 a 2",
       label: "- for stikksaltede produkter likevel",
     },
@@ -434,10 +388,6 @@ const Calculator = () => {
   ];
 
   const SelectFragment24b = [
-    {
-      value: "",
-    },
-
     {
       value: "kategori 24 b 2",
       label: "- for pølser likevel",
@@ -457,9 +407,6 @@ const Calculator = () => {
   ];
 
   const SelectFragment24c = [
-    {
-      value: "",
-    },
     {
       value: "kategori 24 c 2",
       label: "- for påleggsprodukter likevel",
