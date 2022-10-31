@@ -61,9 +61,6 @@ const Calculator = () => {
   //matvaregruppe selector
   const selectOption = [
     {
-      value: "",
-    },
-    {
       value: "grønnsaker, frukt, bær og nøtter",
       label: "Grønnsaker, frukt, bær og nøtter",
     },
